@@ -1,0 +1,996 @@
+{
+    "item": [
+        {
+            "name": "Builder",
+            "description": "Set of endpoints to interact with an external block builder.",
+            "item": [
+                {
+                    "id": "dd309acd-8f9f-4686-ad43-9b8c395c4a8d",
+                    "name": "Register or update a validator's block building preferences.",
+                    "request": {
+                        "name": "Register or update a validator's block building preferences.",
+                        "description": {
+                            "content": "Registers a validator's preferred fee recipient and gas limit.\n\nA success response (200) indicates that the registration was valid. If the\nregistration passes validation, then the builder MUST integrate the\nregistration into its state, such that future blocks built for the\nvalidator conform to the preferences expressed in the registration. If the\nregistration is invalid, then the builder MUST return an error response\n(400) with a description of the validation failure.\n",
+                            "type": "text/plain"
+                        },
+                        "url": {
+                            "path": [
+                                "eth",
+                                "v1",
+                                "builder",
+                                "validators"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  {\n    \"message\": {\n      \"fee_recipient\": \"0xabcf8e0d4e9587369b2301d0790347320302cc09\",\n      \"gas_limit\": \"1\",\n      \"timestamp\": \"1\",\n      \"pubkey\": \"0x93247f2209abcacf57b75a51dafae777f9dd38bc7053d1af526f220a7489a6d3a2753e5f3e8b1cfe39b56f43611df74a\"\n    },\n    \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\"\n  },\n  {\n    \"message\": {\n      \"fee_recipient\": \"0xabcf8e0d4e9587369b2301d0790347320302cc09\",\n      \"gas_limit\": \"1\",\n      \"timestamp\": \"1\",\n      \"pubkey\": \"0x93247f2209abcacf57b75a51dafae777f9dd38bc7053d1af526f220a7489a6d3a2753e5f3e8b1cfe39b56f43611df74a\"\n    },\n    \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\"\n  }\n]",
+                            "options": {
+                                "raw": {
+                                    "headerFamily": "json",
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "auth": null
+                    },
+                    "response": [
+                        {
+                            "id": "a541e483-3d9b-4547-8075-d3aeb3f3bdb4",
+                            "name": "Success response.",
+                            "originalRequest": {
+                                "url": {
+                                    "path": [
+                                        "eth",
+                                        "v1",
+                                        "builder",
+                                        "validators"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [],
+                                    "variable": []
+                                },
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "method": "POST",
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "[\n  {\n    \"message\": {\n      \"fee_recipient\": \"0xabcf8e0d4e9587369b2301d0790347320302cc09\",\n      \"gas_limit\": \"1\",\n      \"timestamp\": \"1\",\n      \"pubkey\": \"0x93247f2209abcacf57b75a51dafae777f9dd38bc7053d1af526f220a7489a6d3a2753e5f3e8b1cfe39b56f43611df74a\"\n    },\n    \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\"\n  },\n  {\n    \"message\": {\n      \"fee_recipient\": \"0xabcf8e0d4e9587369b2301d0790347320302cc09\",\n      \"gas_limit\": \"1\",\n      \"timestamp\": \"1\",\n      \"pubkey\": \"0x93247f2209abcacf57b75a51dafae777f9dd38bc7053d1af526f220a7489a6d3a2753e5f3e8b1cfe39b56f43611df74a\"\n    },\n    \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\"\n  }\n]",
+                                    "options": {
+                                        "raw": {
+                                            "headerFamily": "json",
+                                            "language": "json"
+                                        }
+                                    }
+                                }
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "header": [],
+                            "cookie": [],
+                            "_postman_previewlanguage": "text"
+                        },
+                        {
+                            "id": "5225d8e4-fccd-47d3-8cb0-fcaa024e3e71",
+                            "name": "Error response.",
+                            "originalRequest": {
+                                "url": {
+                                    "path": [
+                                        "eth",
+                                        "v1",
+                                        "builder",
+                                        "validators"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [],
+                                    "variable": []
+                                },
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "method": "POST",
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "[\n  {\n    \"message\": {\n      \"fee_recipient\": \"0xabcf8e0d4e9587369b2301d0790347320302cc09\",\n      \"gas_limit\": \"1\",\n      \"timestamp\": \"1\",\n      \"pubkey\": \"0x93247f2209abcacf57b75a51dafae777f9dd38bc7053d1af526f220a7489a6d3a2753e5f3e8b1cfe39b56f43611df74a\"\n    },\n    \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\"\n  },\n  {\n    \"message\": {\n      \"fee_recipient\": \"0xabcf8e0d4e9587369b2301d0790347320302cc09\",\n      \"gas_limit\": \"1\",\n      \"timestamp\": \"1\",\n      \"pubkey\": \"0x93247f2209abcacf57b75a51dafae777f9dd38bc7053d1af526f220a7489a6d3a2753e5f3e8b1cfe39b56f43611df74a\"\n    },\n    \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\"\n  }\n]",
+                                    "options": {
+                                        "raw": {
+                                            "headerFamily": "json",
+                                            "language": "json"
+                                        }
+                                    }
+                                }
+                            },
+                            "status": "Bad Request",
+                            "code": 400,
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": "{\n  \"code\": 400,\n  \"message\": \"unknown validator\"\n}",
+                            "cookie": [],
+                            "_postman_previewlanguage": "json"
+                        },
+                        {
+                            "id": "25561182-4b24-4169-89d9-06d62f1994a0",
+                            "name": "Builder node internal error.",
+                            "originalRequest": {
+                                "url": {
+                                    "path": [
+                                        "eth",
+                                        "v1",
+                                        "builder",
+                                        "validators"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [],
+                                    "variable": []
+                                },
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "method": "POST",
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "[\n  {\n    \"message\": {\n      \"fee_recipient\": \"0xabcf8e0d4e9587369b2301d0790347320302cc09\",\n      \"gas_limit\": \"1\",\n      \"timestamp\": \"1\",\n      \"pubkey\": \"0x93247f2209abcacf57b75a51dafae777f9dd38bc7053d1af526f220a7489a6d3a2753e5f3e8b1cfe39b56f43611df74a\"\n    },\n    \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\"\n  },\n  {\n    \"message\": {\n      \"fee_recipient\": \"0xabcf8e0d4e9587369b2301d0790347320302cc09\",\n      \"gas_limit\": \"1\",\n      \"timestamp\": \"1\",\n      \"pubkey\": \"0x93247f2209abcacf57b75a51dafae777f9dd38bc7053d1af526f220a7489a6d3a2753e5f3e8b1cfe39b56f43611df74a\"\n    },\n    \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\"\n  }\n]",
+                                    "options": {
+                                        "raw": {
+                                            "headerFamily": "json",
+                                            "language": "json"
+                                        }
+                                    }
+                                }
+                            },
+                            "status": "Internal Server Error",
+                            "code": 500,
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": "{\n  \"code\": 500,\n  \"message\": \"Internal server error\"\n}",
+                            "cookie": [],
+                            "_postman_previewlanguage": "json"
+                        }
+                    ],
+                    "event": [],
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    }
+                },
+                {
+                    "id": "77b3bc81-3ba2-4607-a9c8-449a65a00cd5",
+                    "name": "Get an execution payload header.",
+                    "request": {
+                        "name": "Get an execution payload header.",
+                        "description": {
+                            "content": "Requests a builder node to produce a valid execution payload header, which\ncan be integrated into a blinded beacon block and signed.\n\nIf the builder is unable to produce a valid execution payload header, then\nthe builder MUST return a 204 response. If the request is invalid, then the\nbuilder MUST return an error response (400) with a description of the\nvalidation failure.\n\nAfter Deneb, return the KZG commitments for any associated blobs attached to the execution payload.\n",
+                            "type": "text/plain"
+                        },
+                        "url": {
+                            "path": [
+                                "eth",
+                                "v1",
+                                "builder",
+                                "header",
+                                ":slot",
+                                ":parent_hash",
+                                ":pubkey"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "1",
+                                    "key": "slot",
+                                    "disabled": false,
+                                    "description": {
+                                        "content": "(Required) The slot for which the block should be proposed.",
+                                        "type": "text/plain"
+                                    }
+                                },
+                                {
+                                    "type": "any",
+                                    "value": "0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2",
+                                    "key": "parent_hash",
+                                    "disabled": false,
+                                    "description": {
+                                        "content": "(Required) Hash of execution layer block the proposer will build on.",
+                                        "type": "text/plain"
+                                    }
+                                },
+                                {
+                                    "type": "any",
+                                    "value": "0x93247f2209abcacf57b75a51dafae777f9dd38bc7053d1af526f220a7489a6d3a2753e5f3e8b1cfe39b56f43611df74a",
+                                    "key": "pubkey",
+                                    "disabled": false,
+                                    "description": {
+                                        "content": "(Required) The validator's BLS public key.",
+                                        "type": "text/plain"
+                                    }
+                                }
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "GET",
+                        "body": {},
+                        "auth": null
+                    },
+                    "response": [
+                        {
+                            "id": "9240b7fb-b79a-4f5e-8ad1-4b4f17471abb",
+                            "name": "bellatrix",
+                            "originalRequest": {
+                                "url": {
+                                    "path": [
+                                        "eth",
+                                        "v1",
+                                        "builder",
+                                        "header",
+                                        ":slot",
+                                        ":parent_hash",
+                                        ":pubkey"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [],
+                                    "variable": []
+                                },
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "method": "GET",
+                                "body": {}
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": "{\n  \"version\": \"bellatrix\",\n  \"data\": {\n    \"message\": {\n      \"header\": {\n        \"parent_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"fee_recipient\": \"0xabcf8e0d4e9587369b2301d0790347320302cc09\",\n        \"state_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"receipts_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"logs_bloom\": \"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\",\n        \"prev_randao\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"block_number\": \"1\",\n        \"gas_limit\": \"1\",\n        \"gas_used\": \"1\",\n        \"timestamp\": \"1\",\n        \"extra_data\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"base_fee_per_gas\": \"1\",\n        \"block_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"transactions_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\"\n      },\n      \"value\": \"1\",\n      \"pubkey\": \"0x93247f2209abcacf57b75a51dafae777f9dd38bc7053d1af526f220a7489a6d3a2753e5f3e8b1cfe39b56f43611df74a\"\n    },\n    \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\"\n  }\n}",
+                            "cookie": [],
+                            "_postman_previewlanguage": "json"
+                        },
+                        {
+                            "id": "df7f9eee-5f7b-4303-9506-8136ae5279ab",
+                            "name": "capella",
+                            "originalRequest": {
+                                "url": {
+                                    "path": [
+                                        "eth",
+                                        "v1",
+                                        "builder",
+                                        "header",
+                                        ":slot",
+                                        ":parent_hash",
+                                        ":pubkey"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [],
+                                    "variable": []
+                                },
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "method": "GET",
+                                "body": {}
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": "{\n  \"version\": \"capella\",\n  \"data\": {\n    \"message\": {\n      \"header\": {\n        \"parent_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"fee_recipient\": \"0xabcf8e0d4e9587369b2301d0790347320302cc09\",\n        \"state_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"receipts_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"logs_bloom\": \"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\",\n        \"prev_randao\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"block_number\": \"1\",\n        \"gas_limit\": \"1\",\n        \"gas_used\": \"1\",\n        \"timestamp\": \"1\",\n        \"extra_data\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"base_fee_per_gas\": \"1\",\n        \"block_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"transactions_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"withdrawals_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\"\n      },\n      \"value\": \"1\",\n      \"pubkey\": \"0x93247f2209abcacf57b75a51dafae777f9dd38bc7053d1af526f220a7489a6d3a2753e5f3e8b1cfe39b56f43611df74a\"\n    },\n    \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\"\n  }\n}",
+                            "cookie": [],
+                            "_postman_previewlanguage": "json"
+                        },
+                        {
+                            "id": "eaab79cc-ea76-42f3-9324-1bd892507316",
+                            "name": "deneb",
+                            "originalRequest": {
+                                "url": {
+                                    "path": [
+                                        "eth",
+                                        "v1",
+                                        "builder",
+                                        "header",
+                                        ":slot",
+                                        ":parent_hash",
+                                        ":pubkey"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [],
+                                    "variable": []
+                                },
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "method": "GET",
+                                "body": {}
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": "{\n  \"version\": \"deneb\",\n  \"data\": {\n    \"message\": {\n      \"header\": {\n        \"parent_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"fee_recipient\": \"0xabcf8e0d4e9587369b2301d0790347320302cc09\",\n        \"state_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"receipts_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"logs_bloom\": \"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\",\n        \"prev_randao\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"block_number\": \"1\",\n        \"gas_limit\": \"1\",\n        \"gas_used\": \"1\",\n        \"timestamp\": \"1\",\n        \"extra_data\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"base_fee_per_gas\": \"1\",\n        \"blob_gas_used\": \"1\",\n        \"excess_blob_gas\": \"1\",\n        \"block_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"transactions_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"withdrawals_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\"\n      },\n      \"blob_kzg_commitments\": [\n        \"0xa94170080872584e54a1cf092d845703b13907f2e6b3b1c0ad573b910530499e3bcd48c6378846b80d2bfa58c81cf3d5\"\n      ],\n      \"value\": \"1\",\n      \"pubkey\": \"0x93247f2209abcacf57b75a51dafae777f9dd38bc7053d1af526f220a7489a6d3a2753e5f3e8b1cfe39b56f43611df74a\"\n    },\n    \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\"\n  }\n}",
+                            "cookie": [],
+                            "_postman_previewlanguage": "json"
+                        },
+                        {
+                            "id": "80b2b637-563e-4aa4-9e82-c4d9ad9f4d39",
+                            "name": "No header is available.",
+                            "originalRequest": {
+                                "url": {
+                                    "path": [
+                                        "eth",
+                                        "v1",
+                                        "builder",
+                                        "header",
+                                        ":slot",
+                                        ":parent_hash",
+                                        ":pubkey"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [],
+                                    "variable": []
+                                },
+                                "method": "GET",
+                                "body": {}
+                            },
+                            "status": "No Content",
+                            "code": 204,
+                            "header": [],
+                            "cookie": [],
+                            "_postman_previewlanguage": "text"
+                        },
+                        {
+                            "id": "6b1761e2-8d04-47fb-b873-474581356e17",
+                            "name": "Error response.",
+                            "originalRequest": {
+                                "url": {
+                                    "path": [
+                                        "eth",
+                                        "v1",
+                                        "builder",
+                                        "header",
+                                        ":slot",
+                                        ":parent_hash",
+                                        ":pubkey"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [],
+                                    "variable": []
+                                },
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "method": "GET",
+                                "body": {}
+                            },
+                            "status": "Bad Request",
+                            "code": 400,
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": "{\n  \"code\": 400,\n  \"message\": \"Unknown hash: missing parent hash\"\n}",
+                            "cookie": [],
+                            "_postman_previewlanguage": "json"
+                        },
+                        {
+                            "id": "76d8f2f1-a543-426e-8f9a-a462b89483c3",
+                            "name": "Builder node internal error.",
+                            "originalRequest": {
+                                "url": {
+                                    "path": [
+                                        "eth",
+                                        "v1",
+                                        "builder",
+                                        "header",
+                                        ":slot",
+                                        ":parent_hash",
+                                        ":pubkey"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [],
+                                    "variable": []
+                                },
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "method": "GET",
+                                "body": {}
+                            },
+                            "status": "Internal Server Error",
+                            "code": 500,
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": "{\n  \"code\": 500,\n  \"message\": \"Internal server error\"\n}",
+                            "cookie": [],
+                            "_postman_previewlanguage": "json"
+                        }
+                    ],
+                    "event": [],
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    }
+                },
+                {
+                    "id": "917349e1-c3c1-415f-826c-889e7ec9f8ba",
+                    "name": "Submit a signed blinded block and get unblinded execution payload.",
+                    "request": {
+                        "name": "Submit a signed blinded block and get unblinded execution payload.",
+                        "description": {
+                            "content": "Submits a `SignedBlindedBeaconBlock` to the builder, binding the proposer\nto the block.\n\nA success response (200) indicates that the signed blinded beacon block was\nvalid. If the signed blinded beacon block was invalid, then the builder\nmust return an error response (400) with a description of the validation\nfailure.\n\nAfter Deneb, this endpoint will additionally return the associated blobs in the response.\n",
+                            "type": "text/plain"
+                        },
+                        "url": {
+                            "path": [
+                                "eth",
+                                "v1",
+                                "builder",
+                                "blinded_blocks"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "disabled": false,
+                                "description": {
+                                    "content": "Version of the block being submitted",
+                                    "type": "text/plain"
+                                },
+                                "key": "Eth-Consensus-Version",
+                                "value": "phase0"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"message\": {\n    \"slot\": \"1\",\n    \"proposer_index\": \"1\",\n    \"parent_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"state_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"body\": {\n      \"randao_reveal\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\",\n      \"eth1_data\": {\n        \"deposit_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"deposit_count\": \"1\",\n        \"block_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\"\n      },\n      \"graffiti\": \"0xdeadbeefc0ffeedeadbeefc0ffeedeadbeefc0ffeedeadbeefc0ffeedeadbeef\",\n      \"proposer_slashings\": [\n        {\n          \"signed_header_1\": {\n            \"message\": {\n              \"slot\": \"1\",\n              \"proposer_index\": \"1\",\n              \"parent_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n              \"state_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n              \"body_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\"\n            },\n            \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\"\n          },\n          \"signed_header_2\": {\n            \"message\": {\n              \"slot\": \"1\",\n              \"proposer_index\": \"1\",\n              \"parent_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n              \"state_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n              \"body_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\"\n            },\n            \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\"\n          }\n        }\n      ],\n      \"attester_slashings\": [\n        {\n          \"attestation_1\": {\n            \"attesting_indices\": [\n              \"1\"\n            ],\n            \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\",\n            \"data\": {\n              \"slot\": \"1\",\n              \"index\": \"1\",\n              \"beacon_block_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n              \"source\": {\n                \"epoch\": \"1\",\n                \"root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\"\n              },\n              \"target\": {\n                \"epoch\": \"1\",\n                \"root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\"\n              }\n            }\n          },\n          \"attestation_2\": {\n            \"attesting_indices\": [\n              \"1\"\n            ],\n            \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\",\n            \"data\": {\n              \"slot\": \"1\",\n              \"index\": \"1\",\n              \"beacon_block_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n              \"source\": {\n                \"epoch\": \"1\",\n                \"root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\"\n              },\n              \"target\": {\n                \"epoch\": \"1\",\n                \"root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\"\n              }\n            }\n          }\n        }\n      ],\n      \"attestations\": [\n        {\n          \"aggregation_bits\": \"0x01\",\n          \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\",\n          \"data\": {\n            \"slot\": \"1\",\n            \"index\": \"1\",\n            \"beacon_block_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n            \"source\": {\n              \"epoch\": \"1\",\n              \"root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\"\n            },\n            \"target\": {\n              \"epoch\": \"1\",\n              \"root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\"\n            }\n          }\n        }\n      ],\n      \"deposits\": [\n        {\n          \"proof\": [\n            \"0xeeffb6c21a01d3abf09cd6c56e5d48f5ea0fc3bb0de906e3beea3e73776329cb\",\n            \"0x601c3b24a99d023224d50811bed19449890febb719a31d09ac414c4632f3c0ba\",\n            \"0xbb5e485e0a366e16510de33731d71204ad2fe0f7c600861fc2ac4685212c34e3\",\n            \"0x0006964745296a3e6ebf3954a1541e73205f1eefaddfc48ca9dc856bf159bca2\",\n            \"0x2c6020f1f9712b89f59550aec05b7c23cb1b113762399c0ca5b8fdd2fa85ce57\",\n            \"0x1c15634783e1d9d2cb969da66fd72cafca5026191d911b83211318d183c5ea59\",\n            \"0xdfbdf99a1fde57899df1545be1f91bc8a8a9f46c4bac619e28e92aff276de41f\",\n            \"0xfe9b0f0c05fde6bd26ce63d394058844ad4451f70b6d2547f49c5c2a5c7891a1\",\n            \"0x165f84ee467d18dbafdb07275dc42fb988ab696b0a7ad94c52f4d7a27144b994\",\n            \"0x506d86582d252405b840018792cad2bf1259f1ef5aa5f887e13cb2f0094f51e1\",\n            \"0xecdbe5e5056b968aa726a08f1aa33f5d41540eed42f59ace020431cf38a5144e\",\n            \"0xc4498c5eb1feeb0b225a3f332bdf523dbc013a5b336a851fce1c055b4019a457\",\n            \"0xb7d05f875f140027ef5118a2247bbb84ce8f2f0f1123623085daf7960c329f5f\",\n            \"0x8a9b66ad79116c9fc6eed14bde76e8f486669e59b0b5bb0c60a6b3caea38b83d\",\n            \"0x267c5455e4806b5d0ad5573552d0162e0983595bac25dacd9078174a2766643a\",\n            \"0x27e0c6357985de4d6026d6da14f31e8bfe14524056fec69dc06d6f8a239344af\",\n            \"0xf8455aebc24849bea870fbcef1235e2d27c8fd27db24e26d30d0173f3b207874\",\n            \"0xaba01bf7fe57be4373f47ff8ea6adc4348fab087b69b2518ce630820f95f4150\",\n            \"0xd47152335d9460f2b6fb7aba05ced32a52e9f46659ccd3daa2059661d75a6308\",\n            \"0xf893e908917775b62bff23294dbbe3a1cd8e6cc1c35b4801887b646a6f81f17f\",\n            \"0xcddba7b592e3133393c16194fac7431abf2f5485ed711db282183c819e08ebaa\",\n            \"0x8a8d7fe3af8caa085a7639a832001457dfb9128a8061142ad0335629ff23ff9c\",\n            \"0xfeb3c337d7a51a6fbf00b9e34c52e1c9195c969bd4e7a0bfd51d5c5bed9c1167\",\n            \"0xe71f0aa83cc32edfbefa9f4d3e0174ca85182eec9f3a09f6a6c0df6377a510d7\",\n            \"0x31206fa80a50bb6abe29085058f16212212a60eec8f049fecb92d8c8e0a84bc0\",\n            \"0x21352bfecbeddde993839f614c3dac0a3ee37543f9b412b16199dc158e23b544\",\n            \"0x619e312724bb6d7c3153ed9de791d764a366b389af13c58bf8a8d90481a46765\",\n            \"0x7cdd2986268250628d0c10e385c58c6191e6fbe05191bcc04f133f2cea72c1c4\",\n            \"0x848930bd7ba8cac54661072113fb278869e07bb8587f91392933374d017bcbe1\",\n            \"0x8869ff2c22b28cc10510d9853292803328be4fb0e80495e8bb8d271f5b889636\",\n            \"0xb5fe28e79f1b850f8658246ce9b6a1e7b49fc06db7143e8fe0b4f2b0c5523a5c\",\n            \"0x985e929f70af28d0bdd1a90a808f977f597c7c778c489e98d3bd8910d31ac0f7\",\n            \"0xf7ed070000000000000000000000000000000000000000000000000000000000\"\n          ],\n          \"data\": {\n            \"pubkey\": \"0x93247f2209abcacf57b75a51dafae777f9dd38bc7053d1af526f220a7489a6d3a2753e5f3e8b1cfe39b56f43611df74a\",\n            \"withdrawal_credentials\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n            \"amount\": \"1\",\n            \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\"\n          }\n        }\n      ],\n      \"voluntary_exits\": [\n        {\n          \"message\": {\n            \"epoch\": \"1\",\n            \"validator_index\": \"1\"\n          },\n          \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\"\n        }\n      ],\n      \"sync_aggregate\": {\n        \"sync_committee_bits\": \"0x01\",\n        \"sync_committee_signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\"\n      },\n      \"execution_payload_header\": {\n        \"parent_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"fee_recipient\": \"0xabcf8e0d4e9587369b2301d0790347320302cc09\",\n        \"state_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"receipts_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"logs_bloom\": \"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\",\n        \"prev_randao\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"block_number\": \"1\",\n        \"gas_limit\": \"1\",\n        \"gas_used\": \"1\",\n        \"timestamp\": \"1\",\n        \"extra_data\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"base_fee_per_gas\": \"1\",\n        \"block_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"transactions_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\"\n      }\n    }\n  },\n  \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\"\n}",
+                            "options": {
+                                "raw": {
+                                    "headerFamily": "json",
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "auth": null
+                    },
+                    "response": [
+                        {
+                            "id": "7ba62be7-ac9a-4b0a-b625-0b7dfc6b3143",
+                            "name": "bellatrix",
+                            "originalRequest": {
+                                "url": {
+                                    "path": [
+                                        "eth",
+                                        "v1",
+                                        "builder",
+                                        "blinded_blocks"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [],
+                                    "variable": []
+                                },
+                                "header": [
+                                    {
+                                        "disabled": false,
+                                        "description": {
+                                            "content": "Version of the block being submitted",
+                                            "type": "text/plain"
+                                        },
+                                        "key": "Eth-Consensus-Version",
+                                        "value": "phase0"
+                                    },
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "method": "POST",
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n  \"message\": {\n    \"slot\": \"1\",\n    \"proposer_index\": \"1\",\n    \"parent_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"state_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"body\": {\n      \"randao_reveal\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\",\n      \"eth1_data\": {\n        \"deposit_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"deposit_count\": \"1\",\n        \"block_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\"\n      },\n      \"graffiti\": \"0xdeadbeefc0ffeedeadbeefc0ffeedeadbeefc0ffeedeadbeefc0ffeedeadbeef\",\n      \"proposer_slashings\": [\n        {\n          \"signed_header_1\": {\n            \"message\": {\n              \"slot\": \"1\",\n              \"proposer_index\": \"1\",\n              \"parent_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n              \"state_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n              \"body_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\"\n            },\n            \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\"\n          },\n          \"signed_header_2\": {\n            \"message\": {\n              \"slot\": \"1\",\n              \"proposer_index\": \"1\",\n              \"parent_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n              \"state_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n              \"body_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\"\n            },\n            \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\"\n          }\n        }\n      ],\n      \"attester_slashings\": [\n        {\n          \"attestation_1\": {\n            \"attesting_indices\": [\n              \"1\"\n            ],\n            \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\",\n            \"data\": {\n              \"slot\": \"1\",\n              \"index\": \"1\",\n              \"beacon_block_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n              \"source\": {\n                \"epoch\": \"1\",\n                \"root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\"\n              },\n              \"target\": {\n                \"epoch\": \"1\",\n                \"root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\"\n              }\n            }\n          },\n          \"attestation_2\": {\n            \"attesting_indices\": [\n              \"1\"\n            ],\n            \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\",\n            \"data\": {\n              \"slot\": \"1\",\n              \"index\": \"1\",\n              \"beacon_block_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n              \"source\": {\n                \"epoch\": \"1\",\n                \"root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\"\n              },\n              \"target\": {\n                \"epoch\": \"1\",\n                \"root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\"\n              }\n            }\n          }\n        }\n      ],\n      \"attestations\": [\n        {\n          \"aggregation_bits\": \"0x01\",\n          \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\",\n          \"data\": {\n            \"slot\": \"1\",\n            \"index\": \"1\",\n            \"beacon_block_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n            \"source\": {\n              \"epoch\": \"1\",\n              \"root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\"\n            },\n            \"target\": {\n              \"epoch\": \"1\",\n              \"root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\"\n            }\n          }\n        }\n      ],\n      \"deposits\": [\n        {\n          \"proof\": [\n            \"0xeeffb6c21a01d3abf09cd6c56e5d48f5ea0fc3bb0de906e3beea3e73776329cb\",\n            \"0x601c3b24a99d023224d50811bed19449890febb719a31d09ac414c4632f3c0ba\",\n            \"0xbb5e485e0a366e16510de33731d71204ad2fe0f7c600861fc2ac4685212c34e3\",\n            \"0x0006964745296a3e6ebf3954a1541e73205f1eefaddfc48ca9dc856bf159bca2\",\n            \"0x2c6020f1f9712b89f59550aec05b7c23cb1b113762399c0ca5b8fdd2fa85ce57\",\n            \"0x1c15634783e1d9d2cb969da66fd72cafca5026191d911b83211318d183c5ea59\",\n            \"0xdfbdf99a1fde57899df1545be1f91bc8a8a9f46c4bac619e28e92aff276de41f\",\n            \"0xfe9b0f0c05fde6bd26ce63d394058844ad4451f70b6d2547f49c5c2a5c7891a1\",\n            \"0x165f84ee467d18dbafdb07275dc42fb988ab696b0a7ad94c52f4d7a27144b994\",\n            \"0x506d86582d252405b840018792cad2bf1259f1ef5aa5f887e13cb2f0094f51e1\",\n            \"0xecdbe5e5056b968aa726a08f1aa33f5d41540eed42f59ace020431cf38a5144e\",\n            \"0xc4498c5eb1feeb0b225a3f332bdf523dbc013a5b336a851fce1c055b4019a457\",\n            \"0xb7d05f875f140027ef5118a2247bbb84ce8f2f0f1123623085daf7960c329f5f\",\n            \"0x8a9b66ad79116c9fc6eed14bde76e8f486669e59b0b5bb0c60a6b3caea38b83d\",\n            \"0x267c5455e4806b5d0ad5573552d0162e0983595bac25dacd9078174a2766643a\",\n            \"0x27e0c6357985de4d6026d6da14f31e8bfe14524056fec69dc06d6f8a239344af\",\n            \"0xf8455aebc24849bea870fbcef1235e2d27c8fd27db24e26d30d0173f3b207874\",\n            \"0xaba01bf7fe57be4373f47ff8ea6adc4348fab087b69b2518ce630820f95f4150\",\n            \"0xd47152335d9460f2b6fb7aba05ced32a52e9f46659ccd3daa2059661d75a6308\",\n            \"0xf893e908917775b62bff23294dbbe3a1cd8e6cc1c35b4801887b646a6f81f17f\",\n            \"0xcddba7b592e3133393c16194fac7431abf2f5485ed711db282183c819e08ebaa\",\n            \"0x8a8d7fe3af8caa085a7639a832001457dfb9128a8061142ad0335629ff23ff9c\",\n            \"0xfeb3c337d7a51a6fbf00b9e34c52e1c9195c969bd4e7a0bfd51d5c5bed9c1167\",\n            \"0xe71f0aa83cc32edfbefa9f4d3e0174ca85182eec9f3a09f6a6c0df6377a510d7\",\n            \"0x31206fa80a50bb6abe29085058f16212212a60eec8f049fecb92d8c8e0a84bc0\",\n            \"0x21352bfecbeddde993839f614c3dac0a3ee37543f9b412b16199dc158e23b544\",\n            \"0x619e312724bb6d7c3153ed9de791d764a366b389af13c58bf8a8d90481a46765\",\n            \"0x7cdd2986268250628d0c10e385c58c6191e6fbe05191bcc04f133f2cea72c1c4\",\n            \"0x848930bd7ba8cac54661072113fb278869e07bb8587f91392933374d017bcbe1\",\n            \"0x8869ff2c22b28cc10510d9853292803328be4fb0e80495e8bb8d271f5b889636\",\n            \"0xb5fe28e79f1b850f8658246ce9b6a1e7b49fc06db7143e8fe0b4f2b0c5523a5c\",\n            \"0x985e929f70af28d0bdd1a90a808f977f597c7c778c489e98d3bd8910d31ac0f7\",\n            \"0xf7ed070000000000000000000000000000000000000000000000000000000000\"\n          ],\n          \"data\": {\n            \"pubkey\": \"0x93247f2209abcacf57b75a51dafae777f9dd38bc7053d1af526f220a7489a6d3a2753e5f3e8b1cfe39b56f43611df74a\",\n            \"withdrawal_credentials\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n            \"amount\": \"1\",\n            \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\"\n          }\n        }\n      ],\n      \"voluntary_exits\": [\n        {\n          \"message\": {\n            \"epoch\": \"1\",\n            \"validator_index\": \"1\"\n          },\n          \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\"\n        }\n      ],\n      \"sync_aggregate\": {\n        \"sync_committee_bits\": \"0x01\",\n        \"sync_committee_signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\"\n      },\n      \"execution_payload_header\": {\n        \"parent_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"fee_recipient\": \"0xabcf8e0d4e9587369b2301d0790347320302cc09\",\n        \"state_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"receipts_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"logs_bloom\": \"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\",\n        \"prev_randao\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"block_number\": \"1\",\n        \"gas_limit\": \"1\",\n        \"gas_used\": \"1\",\n        \"timestamp\": \"1\",\n        \"extra_data\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"base_fee_per_gas\": \"1\",\n        \"block_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"transactions_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\"\n      }\n    }\n  },\n  \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\"\n}",
+                                    "options": {
+                                        "raw": {
+                                            "headerFamily": "json",
+                                            "language": "json"
+                                        }
+                                    }
+                                }
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": "{\n  \"version\": \"bellatrix\",\n  \"data\": {\n    \"parent_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"fee_recipient\": \"0xabcf8e0d4e9587369b2301d0790347320302cc09\",\n    \"state_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"receipts_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"logs_bloom\": \"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\",\n    \"prev_randao\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"block_number\": \"1\",\n    \"gas_limit\": \"1\",\n    \"gas_used\": \"1\",\n    \"timestamp\": \"1\",\n    \"extra_data\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"base_fee_per_gas\": \"1\",\n    \"block_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"transactions\": [\n      \"0x02f878831469668303f51d843b9ac9f9843b9aca0082520894c93269b73096998db66be0441e836d873535cb9c8894a19041886f000080c001a031cc29234036afbf9a1fb9476b463367cb1f957ac0b919b69bbc798436e604aaa018c4e9c3914eb27aadd0b91e10b18655739fcf8c1fc398763a9f1beecb8ddc86\"\n    ]\n  }\n}",
+                            "cookie": [],
+                            "_postman_previewlanguage": "json"
+                        },
+                        {
+                            "id": "10f7bc8c-8070-41e7-9751-6d5b341d17f9",
+                            "name": "capella",
+                            "originalRequest": {
+                                "url": {
+                                    "path": [
+                                        "eth",
+                                        "v1",
+                                        "builder",
+                                        "blinded_blocks"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [],
+                                    "variable": []
+                                },
+                                "header": [
+                                    {
+                                        "disabled": false,
+                                        "description": {
+                                            "content": "Version of the block being submitted",
+                                            "type": "text/plain"
+                                        },
+                                        "key": "Eth-Consensus-Version",
+                                        "value": "phase0"
+                                    },
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "method": "POST",
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n  \"message\": {\n    \"slot\": \"1\",\n    \"proposer_index\": \"1\",\n    \"parent_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"state_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"body\": {\n      \"randao_reveal\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\",\n      \"eth1_data\": {\n        \"deposit_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"deposit_count\": \"1\",\n        \"block_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\"\n      },\n      \"graffiti\": \"0xdeadbeefc0ffeedeadbeefc0ffeedeadbeefc0ffeedeadbeefc0ffeedeadbeef\",\n      \"proposer_slashings\": [\n        {\n          \"signed_header_1\": {\n            \"message\": {\n              \"slot\": \"1\",\n              \"proposer_index\": \"1\",\n              \"parent_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n              \"state_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n              \"body_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\"\n            },\n            \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\"\n          },\n          \"signed_header_2\": {\n            \"message\": {\n              \"slot\": \"1\",\n              \"proposer_index\": \"1\",\n              \"parent_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n              \"state_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n              \"body_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\"\n            },\n            \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\"\n          }\n        }\n      ],\n      \"attester_slashings\": [\n        {\n          \"attestation_1\": {\n            \"attesting_indices\": [\n              \"1\"\n            ],\n            \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\",\n            \"data\": {\n              \"slot\": \"1\",\n              \"index\": \"1\",\n              \"beacon_block_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n              \"source\": {\n                \"epoch\": \"1\",\n                \"root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\"\n              },\n              \"target\": {\n                \"epoch\": \"1\",\n                \"root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\"\n              }\n            }\n          },\n          \"attestation_2\": {\n            \"attesting_indices\": [\n              \"1\"\n            ],\n            \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\",\n            \"data\": {\n              \"slot\": \"1\",\n              \"index\": \"1\",\n              \"beacon_block_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n              \"source\": {\n                \"epoch\": \"1\",\n                \"root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\"\n              },\n              \"target\": {\n                \"epoch\": \"1\",\n                \"root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\"\n              }\n            }\n          }\n        }\n      ],\n      \"attestations\": [\n        {\n          \"aggregation_bits\": \"0x01\",\n          \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\",\n          \"data\": {\n            \"slot\": \"1\",\n            \"index\": \"1\",\n            \"beacon_block_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n            \"source\": {\n              \"epoch\": \"1\",\n              \"root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\"\n            },\n            \"target\": {\n              \"epoch\": \"1\",\n              \"root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\"\n            }\n          }\n        }\n      ],\n      \"deposits\": [\n        {\n          \"proof\": [\n            \"0xeeffb6c21a01d3abf09cd6c56e5d48f5ea0fc3bb0de906e3beea3e73776329cb\",\n            \"0x601c3b24a99d023224d50811bed19449890febb719a31d09ac414c4632f3c0ba\",\n            \"0xbb5e485e0a366e16510de33731d71204ad2fe0f7c600861fc2ac4685212c34e3\",\n            \"0x0006964745296a3e6ebf3954a1541e73205f1eefaddfc48ca9dc856bf159bca2\",\n            \"0x2c6020f1f9712b89f59550aec05b7c23cb1b113762399c0ca5b8fdd2fa85ce57\",\n            \"0x1c15634783e1d9d2cb969da66fd72cafca5026191d911b83211318d183c5ea59\",\n            \"0xdfbdf99a1fde57899df1545be1f91bc8a8a9f46c4bac619e28e92aff276de41f\",\n            \"0xfe9b0f0c05fde6bd26ce63d394058844ad4451f70b6d2547f49c5c2a5c7891a1\",\n            \"0x165f84ee467d18dbafdb07275dc42fb988ab696b0a7ad94c52f4d7a27144b994\",\n            \"0x506d86582d252405b840018792cad2bf1259f1ef5aa5f887e13cb2f0094f51e1\",\n            \"0xecdbe5e5056b968aa726a08f1aa33f5d41540eed42f59ace020431cf38a5144e\",\n            \"0xc4498c5eb1feeb0b225a3f332bdf523dbc013a5b336a851fce1c055b4019a457\",\n            \"0xb7d05f875f140027ef5118a2247bbb84ce8f2f0f1123623085daf7960c329f5f\",\n            \"0x8a9b66ad79116c9fc6eed14bde76e8f486669e59b0b5bb0c60a6b3caea38b83d\",\n            \"0x267c5455e4806b5d0ad5573552d0162e0983595bac25dacd9078174a2766643a\",\n            \"0x27e0c6357985de4d6026d6da14f31e8bfe14524056fec69dc06d6f8a239344af\",\n            \"0xf8455aebc24849bea870fbcef1235e2d27c8fd27db24e26d30d0173f3b207874\",\n            \"0xaba01bf7fe57be4373f47ff8ea6adc4348fab087b69b2518ce630820f95f4150\",\n            \"0xd47152335d9460f2b6fb7aba05ced32a52e9f46659ccd3daa2059661d75a6308\",\n            \"0xf893e908917775b62bff23294dbbe3a1cd8e6cc1c35b4801887b646a6f81f17f\",\n            \"0xcddba7b592e3133393c16194fac7431abf2f5485ed711db282183c819e08ebaa\",\n            \"0x8a8d7fe3af8caa085a7639a832001457dfb9128a8061142ad0335629ff23ff9c\",\n            \"0xfeb3c337d7a51a6fbf00b9e34c52e1c9195c969bd4e7a0bfd51d5c5bed9c1167\",\n            \"0xe71f0aa83cc32edfbefa9f4d3e0174ca85182eec9f3a09f6a6c0df6377a510d7\",\n            \"0x31206fa80a50bb6abe29085058f16212212a60eec8f049fecb92d8c8e0a84bc0\",\n            \"0x21352bfecbeddde993839f614c3dac0a3ee37543f9b412b16199dc158e23b544\",\n            \"0x619e312724bb6d7c3153ed9de791d764a366b389af13c58bf8a8d90481a46765\",\n            \"0x7cdd2986268250628d0c10e385c58c6191e6fbe05191bcc04f133f2cea72c1c4\",\n            \"0x848930bd7ba8cac54661072113fb278869e07bb8587f91392933374d017bcbe1\",\n            \"0x8869ff2c22b28cc10510d9853292803328be4fb0e80495e8bb8d271f5b889636\",\n            \"0xb5fe28e79f1b850f8658246ce9b6a1e7b49fc06db7143e8fe0b4f2b0c5523a5c\",\n            \"0x985e929f70af28d0bdd1a90a808f977f597c7c778c489e98d3bd8910d31ac0f7\",\n            \"0xf7ed070000000000000000000000000000000000000000000000000000000000\"\n          ],\n          \"data\": {\n            \"pubkey\": \"0x93247f2209abcacf57b75a51dafae777f9dd38bc7053d1af526f220a7489a6d3a2753e5f3e8b1cfe39b56f43611df74a\",\n            \"withdrawal_credentials\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n            \"amount\": \"1\",\n            \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\"\n          }\n        }\n      ],\n      \"voluntary_exits\": [\n        {\n          \"message\": {\n            \"epoch\": \"1\",\n            \"validator_index\": \"1\"\n          },\n          \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\"\n        }\n      ],\n      \"sync_aggregate\": {\n        \"sync_committee_bits\": \"0x01\",\n        \"sync_committee_signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\"\n      },\n      \"execution_payload_header\": {\n        \"parent_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"fee_recipient\": \"0xabcf8e0d4e9587369b2301d0790347320302cc09\",\n        \"state_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"receipts_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"logs_bloom\": \"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\",\n        \"prev_randao\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"block_number\": \"1\",\n        \"gas_limit\": \"1\",\n        \"gas_used\": \"1\",\n        \"timestamp\": \"1\",\n        \"extra_data\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"base_fee_per_gas\": \"1\",\n        \"block_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"transactions_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"withdrawals_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\"\n      },\n      \"bls_to_execution_changes\": [\n        {\n          \"message\": {\n            \"validator_index\": \"1\",\n            \"from_bls_pubkey\": \"0x93247f2209abcacf57b75a51dafae777f9dd38bc7053d1af526f220a7489a6d3a2753e5f3e8b1cfe39b56f43611df74a\",\n            \"to_execution_address\": \"0xabcf8e0d4e9587369b2301d0790347320302cc09\"\n          },\n          \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\"\n        }\n      ]\n    }\n  },\n  \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\"\n}",
+                                    "options": {
+                                        "raw": {
+                                            "headerFamily": "json",
+                                            "language": "json"
+                                        }
+                                    }
+                                }
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": "{\n  \"version\": \"capella\",\n  \"data\": {\n    \"parent_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"fee_recipient\": \"0xabcf8e0d4e9587369b2301d0790347320302cc09\",\n    \"state_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"receipts_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"logs_bloom\": \"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\",\n    \"prev_randao\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"block_number\": \"1\",\n    \"gas_limit\": \"1\",\n    \"gas_used\": \"1\",\n    \"timestamp\": \"1\",\n    \"extra_data\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"base_fee_per_gas\": \"1\",\n    \"block_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"transactions\": [\n      \"0x02f878831469668303f51d843b9ac9f9843b9aca0082520894c93269b73096998db66be0441e836d873535cb9c8894a19041886f000080c001a031cc29234036afbf9a1fb9476b463367cb1f957ac0b919b69bbc798436e604aaa018c4e9c3914eb27aadd0b91e10b18655739fcf8c1fc398763a9f1beecb8ddc86\"\n    ],\n    \"withdrawals\": [\n      {\n        \"index\": \"1\",\n        \"validator_index\": \"1\",\n        \"address\": \"0xabcf8e0d4e9587369b2301d0790347320302cc09\",\n        \"amount\": \"32000000000\"\n      }\n    ]\n  }\n}",
+                            "cookie": [],
+                            "_postman_previewlanguage": "json"
+                        },
+                        {
+                            "id": "8380418e-c6bd-4bf1-ab9a-5c34e8b8d1a2",
+                            "name": "deneb",
+                            "originalRequest": {
+                                "url": {
+                                    "path": [
+                                        "eth",
+                                        "v1",
+                                        "builder",
+                                        "blinded_blocks"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [],
+                                    "variable": []
+                                },
+                                "header": [
+                                    {
+                                        "disabled": false,
+                                        "description": {
+                                            "content": "Version of the block being submitted",
+                                            "type": "text/plain"
+                                        },
+                                        "key": "Eth-Consensus-Version",
+                                        "value": "phase0"
+                                    },
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "method": "POST",
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n  \"message\": {\n    \"slot\": \"1\",\n    \"proposer_index\": \"1\",\n    \"parent_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"state_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"body\": {\n      \"randao_reveal\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\",\n      \"eth1_data\": {\n        \"deposit_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"deposit_count\": \"1\",\n        \"block_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\"\n      },\n      \"graffiti\": \"0xdeadbeefc0ffeedeadbeefc0ffeedeadbeefc0ffeedeadbeefc0ffeedeadbeef\",\n      \"proposer_slashings\": [\n        {\n          \"signed_header_1\": {\n            \"message\": {\n              \"slot\": \"1\",\n              \"proposer_index\": \"1\",\n              \"parent_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n              \"state_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n              \"body_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\"\n            },\n            \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\"\n          },\n          \"signed_header_2\": {\n            \"message\": {\n              \"slot\": \"1\",\n              \"proposer_index\": \"1\",\n              \"parent_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n              \"state_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n              \"body_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\"\n            },\n            \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\"\n          }\n        }\n      ],\n      \"attester_slashings\": [\n        {\n          \"attestation_1\": {\n            \"attesting_indices\": [\n              \"1\"\n            ],\n            \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\",\n            \"data\": {\n              \"slot\": \"1\",\n              \"index\": \"1\",\n              \"beacon_block_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n              \"source\": {\n                \"epoch\": \"1\",\n                \"root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\"\n              },\n              \"target\": {\n                \"epoch\": \"1\",\n                \"root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\"\n              }\n            }\n          },\n          \"attestation_2\": {\n            \"attesting_indices\": [\n              \"1\"\n            ],\n            \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\",\n            \"data\": {\n              \"slot\": \"1\",\n              \"index\": \"1\",\n              \"beacon_block_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n              \"source\": {\n                \"epoch\": \"1\",\n                \"root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\"\n              },\n              \"target\": {\n                \"epoch\": \"1\",\n                \"root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\"\n              }\n            }\n          }\n        }\n      ],\n      \"attestations\": [\n        {\n          \"aggregation_bits\": \"0x01\",\n          \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\",\n          \"data\": {\n            \"slot\": \"1\",\n            \"index\": \"1\",\n            \"beacon_block_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n            \"source\": {\n              \"epoch\": \"1\",\n              \"root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\"\n            },\n            \"target\": {\n              \"epoch\": \"1\",\n              \"root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\"\n            }\n          }\n        }\n      ],\n      \"deposits\": [\n        {\n          \"proof\": [\n            \"0xeeffb6c21a01d3abf09cd6c56e5d48f5ea0fc3bb0de906e3beea3e73776329cb\",\n            \"0x601c3b24a99d023224d50811bed19449890febb719a31d09ac414c4632f3c0ba\",\n            \"0xbb5e485e0a366e16510de33731d71204ad2fe0f7c600861fc2ac4685212c34e3\",\n            \"0x0006964745296a3e6ebf3954a1541e73205f1eefaddfc48ca9dc856bf159bca2\",\n            \"0x2c6020f1f9712b89f59550aec05b7c23cb1b113762399c0ca5b8fdd2fa85ce57\",\n            \"0x1c15634783e1d9d2cb969da66fd72cafca5026191d911b83211318d183c5ea59\",\n            \"0xdfbdf99a1fde57899df1545be1f91bc8a8a9f46c4bac619e28e92aff276de41f\",\n            \"0xfe9b0f0c05fde6bd26ce63d394058844ad4451f70b6d2547f49c5c2a5c7891a1\",\n            \"0x165f84ee467d18dbafdb07275dc42fb988ab696b0a7ad94c52f4d7a27144b994\",\n            \"0x506d86582d252405b840018792cad2bf1259f1ef5aa5f887e13cb2f0094f51e1\",\n            \"0xecdbe5e5056b968aa726a08f1aa33f5d41540eed42f59ace020431cf38a5144e\",\n            \"0xc4498c5eb1feeb0b225a3f332bdf523dbc013a5b336a851fce1c055b4019a457\",\n            \"0xb7d05f875f140027ef5118a2247bbb84ce8f2f0f1123623085daf7960c329f5f\",\n            \"0x8a9b66ad79116c9fc6eed14bde76e8f486669e59b0b5bb0c60a6b3caea38b83d\",\n            \"0x267c5455e4806b5d0ad5573552d0162e0983595bac25dacd9078174a2766643a\",\n            \"0x27e0c6357985de4d6026d6da14f31e8bfe14524056fec69dc06d6f8a239344af\",\n            \"0xf8455aebc24849bea870fbcef1235e2d27c8fd27db24e26d30d0173f3b207874\",\n            \"0xaba01bf7fe57be4373f47ff8ea6adc4348fab087b69b2518ce630820f95f4150\",\n            \"0xd47152335d9460f2b6fb7aba05ced32a52e9f46659ccd3daa2059661d75a6308\",\n            \"0xf893e908917775b62bff23294dbbe3a1cd8e6cc1c35b4801887b646a6f81f17f\",\n            \"0xcddba7b592e3133393c16194fac7431abf2f5485ed711db282183c819e08ebaa\",\n            \"0x8a8d7fe3af8caa085a7639a832001457dfb9128a8061142ad0335629ff23ff9c\",\n            \"0xfeb3c337d7a51a6fbf00b9e34c52e1c9195c969bd4e7a0bfd51d5c5bed9c1167\",\n            \"0xe71f0aa83cc32edfbefa9f4d3e0174ca85182eec9f3a09f6a6c0df6377a510d7\",\n            \"0x31206fa80a50bb6abe29085058f16212212a60eec8f049fecb92d8c8e0a84bc0\",\n            \"0x21352bfecbeddde993839f614c3dac0a3ee37543f9b412b16199dc158e23b544\",\n            \"0x619e312724bb6d7c3153ed9de791d764a366b389af13c58bf8a8d90481a46765\",\n            \"0x7cdd2986268250628d0c10e385c58c6191e6fbe05191bcc04f133f2cea72c1c4\",\n            \"0x848930bd7ba8cac54661072113fb278869e07bb8587f91392933374d017bcbe1\",\n            \"0x8869ff2c22b28cc10510d9853292803328be4fb0e80495e8bb8d271f5b889636\",\n            \"0xb5fe28e79f1b850f8658246ce9b6a1e7b49fc06db7143e8fe0b4f2b0c5523a5c\",\n            \"0x985e929f70af28d0bdd1a90a808f977f597c7c778c489e98d3bd8910d31ac0f7\",\n            \"0xf7ed070000000000000000000000000000000000000000000000000000000000\"\n          ],\n          \"data\": {\n            \"pubkey\": \"0x93247f2209abcacf57b75a51dafae777f9dd38bc7053d1af526f220a7489a6d3a2753e5f3e8b1cfe39b56f43611df74a\",\n            \"withdrawal_credentials\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n            \"amount\": \"1\",\n            \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\"\n          }\n        }\n      ],\n      \"voluntary_exits\": [\n        {\n          \"message\": {\n            \"epoch\": \"1\",\n            \"validator_index\": \"1\"\n          },\n          \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\"\n        }\n      ],\n      \"sync_aggregate\": {\n        \"sync_committee_bits\": \"0x01\",\n        \"sync_committee_signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\"\n      },\n      \"execution_payload_header\": {\n        \"parent_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"fee_recipient\": \"0xabcf8e0d4e9587369b2301d0790347320302cc09\",\n        \"state_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"receipts_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"logs_bloom\": \"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\",\n        \"prev_randao\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"block_number\": \"1\",\n        \"gas_limit\": \"1\",\n        \"gas_used\": \"1\",\n        \"timestamp\": \"1\",\n        \"extra_data\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"base_fee_per_gas\": \"1\",\n        \"blob_gas_used\": \"1\",\n        \"excess_blob_gas\": \"1\",\n        \"block_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"transactions_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"withdrawals_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\"\n      },\n      \"bls_to_execution_changes\": [\n        {\n          \"message\": {\n            \"validator_index\": \"1\",\n            \"from_bls_pubkey\": \"0x93247f2209abcacf57b75a51dafae777f9dd38bc7053d1af526f220a7489a6d3a2753e5f3e8b1cfe39b56f43611df74a\",\n            \"to_execution_address\": \"0xabcf8e0d4e9587369b2301d0790347320302cc09\"\n          },\n          \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\"\n        }\n      ],\n      \"blob_kzg_commitments\": [\n        \"0xa94170080872584e54a1cf092d845703b13907f2e6b3b1c0ad573b910530499e3bcd48c6378846b80d2bfa58c81cf3d5\"\n      ]\n    }\n  },\n  \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\"\n}",
+                                    "options": {
+                                        "raw": {
+                                            "headerFamily": "json",
+                                            "language": "json"
+                                        }
+                                    }
+                                }
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": "{\n  \"version\": \"deneb\",\n  \"data\": {\n    \"execution_payload\": {\n      \"parent_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n      \"fee_recipient\": \"0xabcf8e0d4e9587369b2301d0790347320302cc09\",\n      \"state_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n      \"receipts_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n      \"logs_bloom\": \"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\",\n      \"prev_randao\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n      \"block_number\": \"1\",\n      \"gas_limit\": \"1\",\n      \"gas_used\": \"1\",\n      \"timestamp\": \"1\",\n      \"extra_data\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n      \"base_fee_per_gas\": \"1\",\n      \"blob_gas_used\": \"1\",\n      \"excess_blob_gas\": \"1\",\n      \"block_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n      \"transactions\": [\n        \"0x02f878831469668303f51d843b9ac9f9843b9aca0082520894c93269b73096998db66be0441e836d873535cb9c8894a19041886f000080c001a031cc29234036afbf9a1fb9476b463367cb1f957ac0b919b69bbc798436e604aaa018c4e9c3914eb27aadd0b91e10b18655739fcf8c1fc398763a9f1beecb8ddc86\"\n      ],\n      \"withdrawals\": [\n        {\n          \"index\": \"1\",\n          \"validator_index\": \"1\",\n          \"address\": \"0xabcf8e0d4e9587369b2301d0790347320302cc09\",\n          \"amount\": \"32000000000\"\n        }\n      ]\n    },\n    \"blobs_bundle\": {\n      \"commitments\": [\n        \"0x8dab030c51e16e84be9caab84ee3d0b8bbec1db4a0e4de76439da8424d9b957370a10a78851f97e4b54d2ce1ab0d686f\"\n      ],\n      \"proofs\": [\n        \"0xb4021b0de10f743893d4f71e1bf830c019e832958efd6795baf2f83b8699a9eccc5dc99015d8d4d8ec370d0cc333c06a\"\n      ],\n      \"blobs\": [\n        \"0x24564723180fcb3d994104538d351c8dcbde12d541676bb736cf678018ca4739\"\n      ]\n    }\n  }\n}",
+                            "cookie": [],
+                            "_postman_previewlanguage": "json"
+                        },
+                        {
+                            "id": "a230a7c5-baac-46be-98e3-a752f33321c5",
+                            "name": "bellatrix",
+                            "originalRequest": {
+                                "url": {
+                                    "path": [
+                                        "eth",
+                                        "v1",
+                                        "builder",
+                                        "blinded_blocks"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [],
+                                    "variable": []
+                                },
+                                "header": [
+                                    {
+                                        "disabled": false,
+                                        "description": {
+                                            "content": "Version of the block being submitted",
+                                            "type": "text/plain"
+                                        },
+                                        "key": "Eth-Consensus-Version",
+                                        "value": "phase0"
+                                    },
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "method": "POST",
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n  \"message\": {\n    \"slot\": \"1\",\n    \"proposer_index\": \"1\",\n    \"parent_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"state_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"body\": {\n      \"randao_reveal\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\",\n      \"eth1_data\": {\n        \"deposit_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"deposit_count\": \"1\",\n        \"block_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\"\n      },\n      \"graffiti\": \"0xdeadbeefc0ffeedeadbeefc0ffeedeadbeefc0ffeedeadbeefc0ffeedeadbeef\",\n      \"proposer_slashings\": [\n        {\n          \"signed_header_1\": {\n            \"message\": {\n              \"slot\": \"1\",\n              \"proposer_index\": \"1\",\n              \"parent_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n              \"state_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n              \"body_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\"\n            },\n            \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\"\n          },\n          \"signed_header_2\": {\n            \"message\": {\n              \"slot\": \"1\",\n              \"proposer_index\": \"1\",\n              \"parent_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n              \"state_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n              \"body_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\"\n            },\n            \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\"\n          }\n        }\n      ],\n      \"attester_slashings\": [\n        {\n          \"attestation_1\": {\n            \"attesting_indices\": [\n              \"1\"\n            ],\n            \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\",\n            \"data\": {\n              \"slot\": \"1\",\n              \"index\": \"1\",\n              \"beacon_block_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n              \"source\": {\n                \"epoch\": \"1\",\n                \"root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\"\n              },\n              \"target\": {\n                \"epoch\": \"1\",\n                \"root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\"\n              }\n            }\n          },\n          \"attestation_2\": {\n            \"attesting_indices\": [\n              \"1\"\n            ],\n            \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\",\n            \"data\": {\n              \"slot\": \"1\",\n              \"index\": \"1\",\n              \"beacon_block_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n              \"source\": {\n                \"epoch\": \"1\",\n                \"root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\"\n              },\n              \"target\": {\n                \"epoch\": \"1\",\n                \"root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\"\n              }\n            }\n          }\n        }\n      ],\n      \"attestations\": [\n        {\n          \"aggregation_bits\": \"0x01\",\n          \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\",\n          \"data\": {\n            \"slot\": \"1\",\n            \"index\": \"1\",\n            \"beacon_block_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n            \"source\": {\n              \"epoch\": \"1\",\n              \"root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\"\n            },\n            \"target\": {\n              \"epoch\": \"1\",\n              \"root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\"\n            }\n          }\n        }\n      ],\n      \"deposits\": [\n        {\n          \"proof\": [\n            \"0xeeffb6c21a01d3abf09cd6c56e5d48f5ea0fc3bb0de906e3beea3e73776329cb\",\n            \"0x601c3b24a99d023224d50811bed19449890febb719a31d09ac414c4632f3c0ba\",\n            \"0xbb5e485e0a366e16510de33731d71204ad2fe0f7c600861fc2ac4685212c34e3\",\n            \"0x0006964745296a3e6ebf3954a1541e73205f1eefaddfc48ca9dc856bf159bca2\",\n            \"0x2c6020f1f9712b89f59550aec05b7c23cb1b113762399c0ca5b8fdd2fa85ce57\",\n            \"0x1c15634783e1d9d2cb969da66fd72cafca5026191d911b83211318d183c5ea59\",\n            \"0xdfbdf99a1fde57899df1545be1f91bc8a8a9f46c4bac619e28e92aff276de41f\",\n            \"0xfe9b0f0c05fde6bd26ce63d394058844ad4451f70b6d2547f49c5c2a5c7891a1\",\n            \"0x165f84ee467d18dbafdb07275dc42fb988ab696b0a7ad94c52f4d7a27144b994\",\n            \"0x506d86582d252405b840018792cad2bf1259f1ef5aa5f887e13cb2f0094f51e1\",\n            \"0xecdbe5e5056b968aa726a08f1aa33f5d41540eed42f59ace020431cf38a5144e\",\n            \"0xc4498c5eb1feeb0b225a3f332bdf523dbc013a5b336a851fce1c055b4019a457\",\n            \"0xb7d05f875f140027ef5118a2247bbb84ce8f2f0f1123623085daf7960c329f5f\",\n            \"0x8a9b66ad79116c9fc6eed14bde76e8f486669e59b0b5bb0c60a6b3caea38b83d\",\n            \"0x267c5455e4806b5d0ad5573552d0162e0983595bac25dacd9078174a2766643a\",\n            \"0x27e0c6357985de4d6026d6da14f31e8bfe14524056fec69dc06d6f8a239344af\",\n            \"0xf8455aebc24849bea870fbcef1235e2d27c8fd27db24e26d30d0173f3b207874\",\n            \"0xaba01bf7fe57be4373f47ff8ea6adc4348fab087b69b2518ce630820f95f4150\",\n            \"0xd47152335d9460f2b6fb7aba05ced32a52e9f46659ccd3daa2059661d75a6308\",\n            \"0xf893e908917775b62bff23294dbbe3a1cd8e6cc1c35b4801887b646a6f81f17f\",\n            \"0xcddba7b592e3133393c16194fac7431abf2f5485ed711db282183c819e08ebaa\",\n            \"0x8a8d7fe3af8caa085a7639a832001457dfb9128a8061142ad0335629ff23ff9c\",\n            \"0xfeb3c337d7a51a6fbf00b9e34c52e1c9195c969bd4e7a0bfd51d5c5bed9c1167\",\n            \"0xe71f0aa83cc32edfbefa9f4d3e0174ca85182eec9f3a09f6a6c0df6377a510d7\",\n            \"0x31206fa80a50bb6abe29085058f16212212a60eec8f049fecb92d8c8e0a84bc0\",\n            \"0x21352bfecbeddde993839f614c3dac0a3ee37543f9b412b16199dc158e23b544\",\n            \"0x619e312724bb6d7c3153ed9de791d764a366b389af13c58bf8a8d90481a46765\",\n            \"0x7cdd2986268250628d0c10e385c58c6191e6fbe05191bcc04f133f2cea72c1c4\",\n            \"0x848930bd7ba8cac54661072113fb278869e07bb8587f91392933374d017bcbe1\",\n            \"0x8869ff2c22b28cc10510d9853292803328be4fb0e80495e8bb8d271f5b889636\",\n            \"0xb5fe28e79f1b850f8658246ce9b6a1e7b49fc06db7143e8fe0b4f2b0c5523a5c\",\n            \"0x985e929f70af28d0bdd1a90a808f977f597c7c778c489e98d3bd8910d31ac0f7\",\n            \"0xf7ed070000000000000000000000000000000000000000000000000000000000\"\n          ],\n          \"data\": {\n            \"pubkey\": \"0x93247f2209abcacf57b75a51dafae777f9dd38bc7053d1af526f220a7489a6d3a2753e5f3e8b1cfe39b56f43611df74a\",\n            \"withdrawal_credentials\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n            \"amount\": \"1\",\n            \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\"\n          }\n        }\n      ],\n      \"voluntary_exits\": [\n        {\n          \"message\": {\n            \"epoch\": \"1\",\n            \"validator_index\": \"1\"\n          },\n          \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\"\n        }\n      ],\n      \"sync_aggregate\": {\n        \"sync_committee_bits\": \"0x01\",\n        \"sync_committee_signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\"\n      },\n      \"execution_payload_header\": {\n        \"parent_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"fee_recipient\": \"0xabcf8e0d4e9587369b2301d0790347320302cc09\",\n        \"state_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"receipts_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"logs_bloom\": \"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\",\n        \"prev_randao\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"block_number\": \"1\",\n        \"gas_limit\": \"1\",\n        \"gas_used\": \"1\",\n        \"timestamp\": \"1\",\n        \"extra_data\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"base_fee_per_gas\": \"1\",\n        \"block_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"transactions_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\"\n      }\n    }\n  },\n  \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\"\n}",
+                                    "options": {
+                                        "raw": {
+                                            "headerFamily": "json",
+                                            "language": "json"
+                                        }
+                                    }
+                                }
+                            },
+                            "status": "Bad Request",
+                            "code": 400,
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": "{\n  \"code\": 400,\n  \"message\": \"Invalid block: missing signature\"\n}",
+                            "cookie": [],
+                            "_postman_previewlanguage": "json"
+                        },
+                        {
+                            "id": "91842bf9-77b6-4f2b-82d2-706827b56828",
+                            "name": "bellatrix",
+                            "originalRequest": {
+                                "url": {
+                                    "path": [
+                                        "eth",
+                                        "v1",
+                                        "builder",
+                                        "blinded_blocks"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [],
+                                    "variable": []
+                                },
+                                "header": [
+                                    {
+                                        "disabled": false,
+                                        "description": {
+                                            "content": "Version of the block being submitted",
+                                            "type": "text/plain"
+                                        },
+                                        "key": "Eth-Consensus-Version",
+                                        "value": "phase0"
+                                    },
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "method": "POST",
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n  \"message\": {\n    \"slot\": \"1\",\n    \"proposer_index\": \"1\",\n    \"parent_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"state_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"body\": {\n      \"randao_reveal\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\",\n      \"eth1_data\": {\n        \"deposit_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"deposit_count\": \"1\",\n        \"block_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\"\n      },\n      \"graffiti\": \"0xdeadbeefc0ffeedeadbeefc0ffeedeadbeefc0ffeedeadbeefc0ffeedeadbeef\",\n      \"proposer_slashings\": [\n        {\n          \"signed_header_1\": {\n            \"message\": {\n              \"slot\": \"1\",\n              \"proposer_index\": \"1\",\n              \"parent_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n              \"state_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n              \"body_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\"\n            },\n            \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\"\n          },\n          \"signed_header_2\": {\n            \"message\": {\n              \"slot\": \"1\",\n              \"proposer_index\": \"1\",\n              \"parent_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n              \"state_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n              \"body_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\"\n            },\n            \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\"\n          }\n        }\n      ],\n      \"attester_slashings\": [\n        {\n          \"attestation_1\": {\n            \"attesting_indices\": [\n              \"1\"\n            ],\n            \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\",\n            \"data\": {\n              \"slot\": \"1\",\n              \"index\": \"1\",\n              \"beacon_block_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n              \"source\": {\n                \"epoch\": \"1\",\n                \"root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\"\n              },\n              \"target\": {\n                \"epoch\": \"1\",\n                \"root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\"\n              }\n            }\n          },\n          \"attestation_2\": {\n            \"attesting_indices\": [\n              \"1\"\n            ],\n            \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\",\n            \"data\": {\n              \"slot\": \"1\",\n              \"index\": \"1\",\n              \"beacon_block_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n              \"source\": {\n                \"epoch\": \"1\",\n                \"root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\"\n              },\n              \"target\": {\n                \"epoch\": \"1\",\n                \"root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\"\n              }\n            }\n          }\n        }\n      ],\n      \"attestations\": [\n        {\n          \"aggregation_bits\": \"0x01\",\n          \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\",\n          \"data\": {\n            \"slot\": \"1\",\n            \"index\": \"1\",\n            \"beacon_block_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n            \"source\": {\n              \"epoch\": \"1\",\n              \"root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\"\n            },\n            \"target\": {\n              \"epoch\": \"1\",\n              \"root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\"\n            }\n          }\n        }\n      ],\n      \"deposits\": [\n        {\n          \"proof\": [\n            \"0xeeffb6c21a01d3abf09cd6c56e5d48f5ea0fc3bb0de906e3beea3e73776329cb\",\n            \"0x601c3b24a99d023224d50811bed19449890febb719a31d09ac414c4632f3c0ba\",\n            \"0xbb5e485e0a366e16510de33731d71204ad2fe0f7c600861fc2ac4685212c34e3\",\n            \"0x0006964745296a3e6ebf3954a1541e73205f1eefaddfc48ca9dc856bf159bca2\",\n            \"0x2c6020f1f9712b89f59550aec05b7c23cb1b113762399c0ca5b8fdd2fa85ce57\",\n            \"0x1c15634783e1d9d2cb969da66fd72cafca5026191d911b83211318d183c5ea59\",\n            \"0xdfbdf99a1fde57899df1545be1f91bc8a8a9f46c4bac619e28e92aff276de41f\",\n            \"0xfe9b0f0c05fde6bd26ce63d394058844ad4451f70b6d2547f49c5c2a5c7891a1\",\n            \"0x165f84ee467d18dbafdb07275dc42fb988ab696b0a7ad94c52f4d7a27144b994\",\n            \"0x506d86582d252405b840018792cad2bf1259f1ef5aa5f887e13cb2f0094f51e1\",\n            \"0xecdbe5e5056b968aa726a08f1aa33f5d41540eed42f59ace020431cf38a5144e\",\n            \"0xc4498c5eb1feeb0b225a3f332bdf523dbc013a5b336a851fce1c055b4019a457\",\n            \"0xb7d05f875f140027ef5118a2247bbb84ce8f2f0f1123623085daf7960c329f5f\",\n            \"0x8a9b66ad79116c9fc6eed14bde76e8f486669e59b0b5bb0c60a6b3caea38b83d\",\n            \"0x267c5455e4806b5d0ad5573552d0162e0983595bac25dacd9078174a2766643a\",\n            \"0x27e0c6357985de4d6026d6da14f31e8bfe14524056fec69dc06d6f8a239344af\",\n            \"0xf8455aebc24849bea870fbcef1235e2d27c8fd27db24e26d30d0173f3b207874\",\n            \"0xaba01bf7fe57be4373f47ff8ea6adc4348fab087b69b2518ce630820f95f4150\",\n            \"0xd47152335d9460f2b6fb7aba05ced32a52e9f46659ccd3daa2059661d75a6308\",\n            \"0xf893e908917775b62bff23294dbbe3a1cd8e6cc1c35b4801887b646a6f81f17f\",\n            \"0xcddba7b592e3133393c16194fac7431abf2f5485ed711db282183c819e08ebaa\",\n            \"0x8a8d7fe3af8caa085a7639a832001457dfb9128a8061142ad0335629ff23ff9c\",\n            \"0xfeb3c337d7a51a6fbf00b9e34c52e1c9195c969bd4e7a0bfd51d5c5bed9c1167\",\n            \"0xe71f0aa83cc32edfbefa9f4d3e0174ca85182eec9f3a09f6a6c0df6377a510d7\",\n            \"0x31206fa80a50bb6abe29085058f16212212a60eec8f049fecb92d8c8e0a84bc0\",\n            \"0x21352bfecbeddde993839f614c3dac0a3ee37543f9b412b16199dc158e23b544\",\n            \"0x619e312724bb6d7c3153ed9de791d764a366b389af13c58bf8a8d90481a46765\",\n            \"0x7cdd2986268250628d0c10e385c58c6191e6fbe05191bcc04f133f2cea72c1c4\",\n            \"0x848930bd7ba8cac54661072113fb278869e07bb8587f91392933374d017bcbe1\",\n            \"0x8869ff2c22b28cc10510d9853292803328be4fb0e80495e8bb8d271f5b889636\",\n            \"0xb5fe28e79f1b850f8658246ce9b6a1e7b49fc06db7143e8fe0b4f2b0c5523a5c\",\n            \"0x985e929f70af28d0bdd1a90a808f977f597c7c778c489e98d3bd8910d31ac0f7\",\n            \"0xf7ed070000000000000000000000000000000000000000000000000000000000\"\n          ],\n          \"data\": {\n            \"pubkey\": \"0x93247f2209abcacf57b75a51dafae777f9dd38bc7053d1af526f220a7489a6d3a2753e5f3e8b1cfe39b56f43611df74a\",\n            \"withdrawal_credentials\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n            \"amount\": \"1\",\n            \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\"\n          }\n        }\n      ],\n      \"voluntary_exits\": [\n        {\n          \"message\": {\n            \"epoch\": \"1\",\n            \"validator_index\": \"1\"\n          },\n          \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\"\n        }\n      ],\n      \"sync_aggregate\": {\n        \"sync_committee_bits\": \"0x01\",\n        \"sync_committee_signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\"\n      },\n      \"execution_payload_header\": {\n        \"parent_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"fee_recipient\": \"0xabcf8e0d4e9587369b2301d0790347320302cc09\",\n        \"state_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"receipts_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"logs_bloom\": \"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\",\n        \"prev_randao\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"block_number\": \"1\",\n        \"gas_limit\": \"1\",\n        \"gas_used\": \"1\",\n        \"timestamp\": \"1\",\n        \"extra_data\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"base_fee_per_gas\": \"1\",\n        \"block_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n        \"transactions_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\"\n      }\n    }\n  },\n  \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\"\n}",
+                                    "options": {
+                                        "raw": {
+                                            "headerFamily": "json",
+                                            "language": "json"
+                                        }
+                                    }
+                                }
+                            },
+                            "status": "Internal Server Error",
+                            "code": 500,
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": "{\n  \"code\": 500,\n  \"message\": \"Internal server error\"\n}",
+                            "cookie": [],
+                            "_postman_previewlanguage": "json"
+                        }
+                    ],
+                    "event": [],
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    }
+                },
+                {
+                    "id": "994db9e1-3f1e-4ad6-993c-155f9e4f501b",
+                    "name": "Check if builder is healthy.",
+                    "request": {
+                        "name": "Check if builder is healthy.",
+                        "description": {
+                            "content": "Checks if builder can respond to requests normally.",
+                            "type": "text/plain"
+                        },
+                        "url": {
+                            "path": [
+                                "eth",
+                                "v1",
+                                "builder",
+                                "status"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "GET",
+                        "body": {},
+                        "auth": null
+                    },
+                    "response": [
+                        {
+                            "id": "3c33ef51-9978-4057-8586-7578b3f3354d",
+                            "name": "Success response.",
+                            "originalRequest": {
+                                "url": {
+                                    "path": [
+                                        "eth",
+                                        "v1",
+                                        "builder",
+                                        "status"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [],
+                                    "variable": []
+                                },
+                                "method": "GET",
+                                "body": {}
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "header": [],
+                            "cookie": [],
+                            "_postman_previewlanguage": "text"
+                        },
+                        {
+                            "id": "d41c4ddd-919c-4f63-8143-13277245047b",
+                            "name": "Builder node internal error.",
+                            "originalRequest": {
+                                "url": {
+                                    "path": [
+                                        "eth",
+                                        "v1",
+                                        "builder",
+                                        "status"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [],
+                                    "variable": []
+                                },
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "method": "GET",
+                                "body": {}
+                            },
+                            "status": "Internal Server Error",
+                            "code": 500,
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": "{\n  \"code\": 500,\n  \"message\": \"Internal server error\"\n}",
+                            "cookie": [],
+                            "_postman_previewlanguage": "json"
+                        }
+                    ],
+                    "event": [],
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [],
+    "variable": [
+        {
+            "key": "server_url",
+            "value": "http://localhost:18550"
+        },
+        {
+            "key": "baseUrl",
+            "value": "{{server_url}}"
+        }
+    ],
+    "info": {
+        "_postman_id": "f8ea5c89-013b-448c-bc47-8ddffce9a4d4",
+        "name": "Builder API",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": {
+            "content": "API specification for external builder nodes. This interface enables\nvalidators to delegate block building duties.\n\nAPI endpoints are individually versioned. As such, there is no direct\nrelationship between all v1 endpoints, all v2 endpoints, _etc._ and no such\nrelationship should be inferred. The rules that require an increase in\nversion number are as follows:\n\n  - no field that is listed in an endpoint shall be removed without an\n    increase in the version number\n  - no field that is listed in an endpoint shall be altered in terms of\n    format (_e.g._ from a string to an array) without an increase in the\n    version number\n\nNote that it is possible for a field to be added to an endpoint's data or\nmetadata without an increase in the version number.\n\n\nContact Support:\n Name: Ethereum Github",
+            "type": "text/plain"
+        }
+    }
+}

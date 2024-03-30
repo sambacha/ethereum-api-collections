@@ -1,0 +1,1514 @@
+{
+    "item": [
+        {
+            "name": "Builder",
+            "description": "Set of endpoints to interact with an external block builder.",
+            "item": [
+                {
+                    "id": "ba03fe0f-72c5-4823-871d-84514ace5568",
+                    "name": "Get a list of validator registrations for validators scheduled to propose\nin the current and next epoch.\n",
+                    "request": {
+                        "name": "Get a list of validator registrations for validators scheduled to propose\nin the current and next epoch.\n",
+                        "description": {
+                            "content": "* Used by builders to know when to submit bids for an upcoming proposal.\n\n* Returns an array of validator registrations for the current and next epoch.\n\n* Each entry includes a slot and the validator with assigned duty.\n\n* Slots without a registered validator are omitted.\n",
+                            "type": "text/plain"
+                        },
+                        "url": {
+                            "path": [
+                                "relay",
+                                "v1",
+                                "builder",
+                                "validators"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "GET",
+                        "body": {},
+                        "auth": null
+                    },
+                    "response": [
+                        {
+                            "id": "ead5a8eb-b04a-49bf-8025-2d618284ffde",
+                            "name": "Success response.",
+                            "originalRequest": {
+                                "url": {
+                                    "path": [
+                                        "relay",
+                                        "v1",
+                                        "builder",
+                                        "validators"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [],
+                                    "variable": []
+                                },
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "method": "GET",
+                                "body": {}
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": "[\n  {\n    \"slot\": \"1\",\n    \"validator_index\": \"1\",\n    \"entry\": {\n      \"message\": {\n        \"fee_recipient\": \"0xAbcF8e0d4e9587369b2301D0790347320302cc09\",\n        \"gas_limit\": \"1\",\n        \"timestamp\": \"1\",\n        \"pubkey\": \"0x93247f2209abcacf57b75a51dafae777f9dd38bc7053d1af526f220a7489a6d3a2753e5f3e8b1cfe39b56f43611df74a\"\n      },\n      \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\"\n    }\n  },\n  {\n    \"slot\": \"1\",\n    \"validator_index\": \"1\",\n    \"entry\": {\n      \"message\": {\n        \"fee_recipient\": \"0xAbcF8e0d4e9587369b2301D0790347320302cc09\",\n        \"gas_limit\": \"1\",\n        \"timestamp\": \"1\",\n        \"pubkey\": \"0x93247f2209abcacf57b75a51dafae777f9dd38bc7053d1af526f220a7489a6d3a2753e5f3e8b1cfe39b56f43611df74a\"\n      },\n      \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\"\n    }\n  }\n]",
+                            "cookie": [],
+                            "_postman_previewlanguage": "json"
+                        }
+                    ],
+                    "event": [],
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    }
+                },
+                {
+                    "id": "b15b92ab-8f5b-45e0-b431-ae743c413f2c",
+                    "name": "Submit a new block to the relay.",
+                    "request": {
+                        "name": "Submit a new block to the relay.",
+                        "description": {
+                            "content": "* Blocks can be submitted as JSON or SSZ, and optionally GZIP encoded. To be\n  clear, there are four options: JSON, JSON+GZIP, SSZ, SSZ+GZIP. If JSON, the\n  content type should be `application/json`. If SSZ, the content type should\n  be `application/octet-stream`.\n\n* To enable GZIP compression for the request body, the HTTP content encoding \n  should be `gzip`. Compression is optional.\n\n* The relay will simulate the block to verify properties and proposer\n  payment in the payment transaction from builder to proposer\n  `fee_recipient` at the end of block.\n\n* For accountability, builder signature is over the SSZ encoded `message`.\n\n* The `message`, which does not include the transactions, will be made\n  public via the data API, allowing anyone to verify the builder signature.\n\n* Any new submission by a builder will overwrite a previous one by the same\n  `builder_pubkey`, even if it is less profitable.\n",
+                            "type": "text/plain"
+                        },
+                        "url": {
+                            "path": [
+                                "relay",
+                                "v1",
+                                "builder",
+                                "blocks"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "disabled": false,
+                                    "description": {
+                                        "content": "If set to 1, opt into bid cancellations.",
+                                        "type": "text/plain"
+                                    },
+                                    "key": "cancellations",
+                                    "value": "1"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"message\": {\n    \"slot\": \"1\",\n    \"parent_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"block_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"builder_pubkey\": \"0x93247f2209abcacf57b75a51dafae777f9dd38bc7053d1af526f220a7489a6d3a2753e5f3e8b1cfe39b56f43611df74a\",\n    \"proposer_fee_recipient\": \"0xabcf8e0d4e9587369b2301d0790347320302cc09\",\n    \"gas_limit\": \"1\",\n    \"gas_used\": \"1\",\n    \"value\": \"1\"\n  },\n  \"execution_payload\": {\n    \"parent_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"fee_recipient\": \"0xabcf8e0d4e9587369b2301d0790347320302cc09\",\n    \"state_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"receipts_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"logs_bloom\": \"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\",\n    \"prev_randao\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"block_number\": \"1\",\n    \"gas_limit\": \"1\",\n    \"gas_used\": \"1\",\n    \"timestamp\": \"1\",\n    \"extra_data\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"base_fee_per_gas\": \"1\",\n    \"block_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"transactions\": [\n      \"0x02f878831469668303f51d843b9ac9f9843b9aca0082520894c93269b73096998db66be0441e836d873535cb9c8894a19041886f000080c001a031cc29234036afbf9a1fb9476b463367cb1f957ac0b919b69bbc798436e604aaa018c4e9c3914eb27aadd0b91e10b18655739fcf8c1fc398763a9f1beecb8ddc86\"\n    ]\n  },\n  \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\"\n}",
+                            "options": {
+                                "raw": {
+                                    "headerFamily": "json",
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "auth": null
+                    },
+                    "response": [
+                        {
+                            "id": "9872952b-0725-43c4-977b-b1b5f956e9fe",
+                            "name": "Success response.",
+                            "originalRequest": {
+                                "url": {
+                                    "path": [
+                                        "relay",
+                                        "v1",
+                                        "builder",
+                                        "blocks"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "If set to 1, opt into bid cancellations.",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "cancellations",
+                                            "value": "1"
+                                        }
+                                    ],
+                                    "variable": []
+                                },
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "method": "POST",
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n  \"message\": {\n    \"slot\": \"1\",\n    \"parent_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"block_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"builder_pubkey\": \"0x93247f2209abcacf57b75a51dafae777f9dd38bc7053d1af526f220a7489a6d3a2753e5f3e8b1cfe39b56f43611df74a\",\n    \"proposer_fee_recipient\": \"0xabcf8e0d4e9587369b2301d0790347320302cc09\",\n    \"gas_limit\": \"1\",\n    \"gas_used\": \"1\",\n    \"value\": \"1\"\n  },\n  \"execution_payload\": {\n    \"parent_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"fee_recipient\": \"0xabcf8e0d4e9587369b2301d0790347320302cc09\",\n    \"state_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"receipts_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"logs_bloom\": \"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\",\n    \"prev_randao\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"block_number\": \"1\",\n    \"gas_limit\": \"1\",\n    \"gas_used\": \"1\",\n    \"timestamp\": \"1\",\n    \"extra_data\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"base_fee_per_gas\": \"1\",\n    \"block_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"transactions\": [\n      \"0x02f878831469668303f51d843b9ac9f9843b9aca0082520894c93269b73096998db66be0441e836d873535cb9c8894a19041886f000080c001a031cc29234036afbf9a1fb9476b463367cb1f957ac0b919b69bbc798436e604aaa018c4e9c3914eb27aadd0b91e10b18655739fcf8c1fc398763a9f1beecb8ddc86\"\n    ]\n  },\n  \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\"\n}",
+                                    "options": {
+                                        "raw": {
+                                            "headerFamily": "json",
+                                            "language": "json"
+                                        }
+                                    }
+                                }
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "header": [],
+                            "cookie": [],
+                            "_postman_previewlanguage": "text"
+                        },
+                        {
+                            "id": "aca4c7ed-8258-4f0f-af60-c02f93b6faeb",
+                            "name": "bellatrix",
+                            "originalRequest": {
+                                "url": {
+                                    "path": [
+                                        "relay",
+                                        "v1",
+                                        "builder",
+                                        "blocks"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "If set to 1, opt into bid cancellations.",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "cancellations",
+                                            "value": "1"
+                                        }
+                                    ],
+                                    "variable": []
+                                },
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "method": "POST",
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n  \"message\": {\n    \"slot\": \"1\",\n    \"parent_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"block_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"builder_pubkey\": \"0x93247f2209abcacf57b75a51dafae777f9dd38bc7053d1af526f220a7489a6d3a2753e5f3e8b1cfe39b56f43611df74a\",\n    \"proposer_fee_recipient\": \"0xabcf8e0d4e9587369b2301d0790347320302cc09\",\n    \"gas_limit\": \"1\",\n    \"gas_used\": \"1\",\n    \"value\": \"1\"\n  },\n  \"execution_payload\": {\n    \"parent_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"fee_recipient\": \"0xabcf8e0d4e9587369b2301d0790347320302cc09\",\n    \"state_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"receipts_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"logs_bloom\": \"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\",\n    \"prev_randao\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"block_number\": \"1\",\n    \"gas_limit\": \"1\",\n    \"gas_used\": \"1\",\n    \"timestamp\": \"1\",\n    \"extra_data\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"base_fee_per_gas\": \"1\",\n    \"block_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"transactions\": [\n      \"0x02f878831469668303f51d843b9ac9f9843b9aca0082520894c93269b73096998db66be0441e836d873535cb9c8894a19041886f000080c001a031cc29234036afbf9a1fb9476b463367cb1f957ac0b919b69bbc798436e604aaa018c4e9c3914eb27aadd0b91e10b18655739fcf8c1fc398763a9f1beecb8ddc86\"\n    ]\n  },\n  \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\"\n}",
+                                    "options": {
+                                        "raw": {
+                                            "headerFamily": "json",
+                                            "language": "json"
+                                        }
+                                    }
+                                }
+                            },
+                            "status": "Bad Request",
+                            "code": 400,
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": "{\n  \"code\": 400,\n  \"message\": \"payload for this slot was already delivered\"\n}",
+                            "cookie": [],
+                            "_postman_previewlanguage": "json"
+                        },
+                        {
+                            "id": "b461af6a-0bd2-41de-b980-fcd3fdfd1a9c",
+                            "name": "capella",
+                            "originalRequest": {
+                                "url": {
+                                    "path": [
+                                        "relay",
+                                        "v1",
+                                        "builder",
+                                        "blocks"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "If set to 1, opt into bid cancellations.",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "cancellations",
+                                            "value": "1"
+                                        }
+                                    ],
+                                    "variable": []
+                                },
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "method": "POST",
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n  \"message\": {\n    \"slot\": \"1\",\n    \"parent_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"block_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"builder_pubkey\": \"0x93247f2209abcacf57b75a51dafae777f9dd38bc7053d1af526f220a7489a6d3a2753e5f3e8b1cfe39b56f43611df74a\",\n    \"proposer_fee_recipient\": \"0xabcf8e0d4e9587369b2301d0790347320302cc09\",\n    \"gas_limit\": \"1\",\n    \"gas_used\": \"1\",\n    \"value\": \"1\"\n  },\n  \"execution_payload\": {\n    \"parent_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"fee_recipient\": \"0xabcf8e0d4e9587369b2301d0790347320302cc09\",\n    \"state_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"receipts_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"logs_bloom\": \"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\",\n    \"prev_randao\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"block_number\": \"1\",\n    \"gas_limit\": \"1\",\n    \"gas_used\": \"1\",\n    \"timestamp\": \"1\",\n    \"extra_data\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"base_fee_per_gas\": \"1\",\n    \"block_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"transactions\": [\n      \"0x02f878831469668303f51d843b9ac9f9843b9aca0082520894c93269b73096998db66be0441e836d873535cb9c8894a19041886f000080c001a031cc29234036afbf9a1fb9476b463367cb1f957ac0b919b69bbc798436e604aaa018c4e9c3914eb27aadd0b91e10b18655739fcf8c1fc398763a9f1beecb8ddc86\"\n    ],\n    \"withdrawals\": [\n      {\n        \"index\": \"1\",\n        \"validator_index\": \"1\",\n        \"address\": \"0xabcf8e0d4e9587369b2301d0790347320302cc09\",\n        \"amount\": \"32000000000\"\n      }\n    ]\n  },\n  \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\"\n}",
+                                    "options": {
+                                        "raw": {
+                                            "headerFamily": "json",
+                                            "language": "json"
+                                        }
+                                    }
+                                }
+                            },
+                            "status": "Bad Request",
+                            "code": 400,
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": "{\n  \"code\": 400,\n  \"message\": \"payload for this slot was already delivered\"\n}",
+                            "cookie": [],
+                            "_postman_previewlanguage": "json"
+                        },
+                        {
+                            "id": "1e998763-1a40-42d6-bcd4-96d7d9df0556",
+                            "name": "deneb",
+                            "originalRequest": {
+                                "url": {
+                                    "path": [
+                                        "relay",
+                                        "v1",
+                                        "builder",
+                                        "blocks"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "If set to 1, opt into bid cancellations.",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "cancellations",
+                                            "value": "1"
+                                        }
+                                    ],
+                                    "variable": []
+                                },
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "method": "POST",
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n  \"message\": {\n    \"slot\": \"1\",\n    \"parent_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"block_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"builder_pubkey\": \"0x93247f2209abcacf57b75a51dafae777f9dd38bc7053d1af526f220a7489a6d3a2753e5f3e8b1cfe39b56f43611df74a\",\n    \"proposer_fee_recipient\": \"0xabcf8e0d4e9587369b2301d0790347320302cc09\",\n    \"gas_limit\": \"1\",\n    \"gas_used\": \"1\",\n    \"value\": \"1\"\n  },\n  \"execution_payload\": {\n    \"parent_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"fee_recipient\": \"0xabcf8e0d4e9587369b2301d0790347320302cc09\",\n    \"state_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"receipts_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"logs_bloom\": \"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\",\n    \"prev_randao\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"block_number\": \"1\",\n    \"gas_limit\": \"1\",\n    \"gas_used\": \"1\",\n    \"timestamp\": \"1\",\n    \"extra_data\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"base_fee_per_gas\": \"1\",\n    \"block_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"transactions\": [\n      \"0x02f878831469668303f51d843b9ac9f9843b9aca0082520894c93269b73096998db66be0441e836d873535cb9c8894a19041886f000080c001a031cc29234036afbf9a1fb9476b463367cb1f957ac0b919b69bbc798436e604aaa018c4e9c3914eb27aadd0b91e10b18655739fcf8c1fc398763a9f1beecb8ddc86\"\n    ],\n    \"withdrawals\": [\n      {\n        \"index\": \"1\",\n        \"validator_index\": \"1\",\n        \"address\": \"0xabcf8e0d4e9587369b2301d0790347320302cc09\",\n        \"amount\": \"32000000000\"\n      }\n    ]\n  },\n  \"blobs_bundle\": {\n    \"commitments\": [\n      \"0x8dab030c51e16e84be9caab84ee3d0b8bbec1db4a0e4de76439da8424d9b957370a10a78851f97e4b54d2ce1ab0d686f\"\n    ],\n    \"proofs\": [\n      \"0xb4021b0de10f743893d4f71e1bf830c019e832958efd6795baf2f83b8699a9eccc5dc99015d8d4d8ec370d0cc333c06a\"\n    ],\n    \"blobs\": [\n      \"0x24564723180fcb3d994104538d351c8dcbde12d541676bb736cf678018ca4739\"\n    ]\n  },\n  \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\"\n}",
+                                    "options": {
+                                        "raw": {
+                                            "headerFamily": "json",
+                                            "language": "json"
+                                        }
+                                    }
+                                }
+                            },
+                            "status": "Bad Request",
+                            "code": 400,
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": "{\n  \"code\": 400,\n  \"message\": \"payload for this slot was already delivered\"\n}",
+                            "cookie": [],
+                            "_postman_previewlanguage": "json"
+                        },
+                        {
+                            "id": "f7327227-c2f4-4edd-8863-21790fdb6c09",
+                            "name": "capella",
+                            "originalRequest": {
+                                "url": {
+                                    "path": [
+                                        "relay",
+                                        "v1",
+                                        "builder",
+                                        "blocks"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "If set to 1, opt into bid cancellations.",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "cancellations",
+                                            "value": "1"
+                                        }
+                                    ],
+                                    "variable": []
+                                },
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "method": "POST",
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n  \"message\": {\n    \"slot\": \"1\",\n    \"parent_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"block_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"builder_pubkey\": \"0x93247f2209abcacf57b75a51dafae777f9dd38bc7053d1af526f220a7489a6d3a2753e5f3e8b1cfe39b56f43611df74a\",\n    \"proposer_fee_recipient\": \"0xabcf8e0d4e9587369b2301d0790347320302cc09\",\n    \"gas_limit\": \"1\",\n    \"gas_used\": \"1\",\n    \"value\": \"1\"\n  },\n  \"execution_payload\": {\n    \"parent_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"fee_recipient\": \"0xabcf8e0d4e9587369b2301d0790347320302cc09\",\n    \"state_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"receipts_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"logs_bloom\": \"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\",\n    \"prev_randao\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"block_number\": \"1\",\n    \"gas_limit\": \"1\",\n    \"gas_used\": \"1\",\n    \"timestamp\": \"1\",\n    \"extra_data\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"base_fee_per_gas\": \"1\",\n    \"block_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"transactions\": [\n      \"0x02f878831469668303f51d843b9ac9f9843b9aca0082520894c93269b73096998db66be0441e836d873535cb9c8894a19041886f000080c001a031cc29234036afbf9a1fb9476b463367cb1f957ac0b919b69bbc798436e604aaa018c4e9c3914eb27aadd0b91e10b18655739fcf8c1fc398763a9f1beecb8ddc86\"\n    ],\n    \"withdrawals\": [\n      {\n        \"index\": \"1\",\n        \"validator_index\": \"1\",\n        \"address\": \"0xabcf8e0d4e9587369b2301d0790347320302cc09\",\n        \"amount\": \"32000000000\"\n      }\n    ]\n  },\n  \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\"\n}",
+                                    "options": {
+                                        "raw": {
+                                            "headerFamily": "json",
+                                            "language": "json"
+                                        }
+                                    }
+                                }
+                            },
+                            "status": "Internal Server Error",
+                            "code": 500,
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": "{\n  \"code\": 500,\n  \"message\": \"internal server error\"\n}",
+                            "cookie": [],
+                            "_postman_previewlanguage": "json"
+                        },
+                        {
+                            "id": "9552aedc-d07a-4273-a072-5ba2f5290d25",
+                            "name": "deneb",
+                            "originalRequest": {
+                                "url": {
+                                    "path": [
+                                        "relay",
+                                        "v1",
+                                        "builder",
+                                        "blocks"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "If set to 1, opt into bid cancellations.",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "cancellations",
+                                            "value": "1"
+                                        }
+                                    ],
+                                    "variable": []
+                                },
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "method": "POST",
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n  \"message\": {\n    \"slot\": \"1\",\n    \"parent_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"block_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"builder_pubkey\": \"0x93247f2209abcacf57b75a51dafae777f9dd38bc7053d1af526f220a7489a6d3a2753e5f3e8b1cfe39b56f43611df74a\",\n    \"proposer_fee_recipient\": \"0xabcf8e0d4e9587369b2301d0790347320302cc09\",\n    \"gas_limit\": \"1\",\n    \"gas_used\": \"1\",\n    \"value\": \"1\"\n  },\n  \"execution_payload\": {\n    \"parent_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"fee_recipient\": \"0xabcf8e0d4e9587369b2301d0790347320302cc09\",\n    \"state_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"receipts_root\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"logs_bloom\": \"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\",\n    \"prev_randao\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"block_number\": \"1\",\n    \"gas_limit\": \"1\",\n    \"gas_used\": \"1\",\n    \"timestamp\": \"1\",\n    \"extra_data\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"base_fee_per_gas\": \"1\",\n    \"block_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"transactions\": [\n      \"0x02f878831469668303f51d843b9ac9f9843b9aca0082520894c93269b73096998db66be0441e836d873535cb9c8894a19041886f000080c001a031cc29234036afbf9a1fb9476b463367cb1f957ac0b919b69bbc798436e604aaa018c4e9c3914eb27aadd0b91e10b18655739fcf8c1fc398763a9f1beecb8ddc86\"\n    ],\n    \"withdrawals\": [\n      {\n        \"index\": \"1\",\n        \"validator_index\": \"1\",\n        \"address\": \"0xabcf8e0d4e9587369b2301d0790347320302cc09\",\n        \"amount\": \"32000000000\"\n      }\n    ]\n  },\n  \"blobs_bundle\": {\n    \"commitments\": [\n      \"0x8dab030c51e16e84be9caab84ee3d0b8bbec1db4a0e4de76439da8424d9b957370a10a78851f97e4b54d2ce1ab0d686f\"\n    ],\n    \"proofs\": [\n      \"0xb4021b0de10f743893d4f71e1bf830c019e832958efd6795baf2f83b8699a9eccc5dc99015d8d4d8ec370d0cc333c06a\"\n    ],\n    \"blobs\": [\n      \"0x24564723180fcb3d994104538d351c8dcbde12d541676bb736cf678018ca4739\"\n    ]\n  },\n  \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\"\n}",
+                                    "options": {
+                                        "raw": {
+                                            "headerFamily": "json",
+                                            "language": "json"
+                                        }
+                                    }
+                                }
+                            },
+                            "status": "Internal Server Error",
+                            "code": 500,
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": "{\n  \"code\": 500,\n  \"message\": \"internal server error\"\n}",
+                            "cookie": [],
+                            "_postman_previewlanguage": "json"
+                        }
+                    ],
+                    "event": [],
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Data",
+            "description": "Set of endpoints to provide data about the relay.",
+            "item": [
+                {
+                    "id": "bd06fee5-f74a-4fd7-9991-7869bf56dfc3",
+                    "name": "Get payloads that were delivered to proposers.",
+                    "request": {
+                        "name": "Get payloads that were delivered to proposers.",
+                        "description": {
+                            "content": "* Payloads become available after the relay responds to a `getPayload` request from the proposer.\n\n* Query arguments are used as filters.\n",
+                            "type": "text/plain"
+                        },
+                        "url": {
+                            "path": [
+                                "relay",
+                                "v1",
+                                "data",
+                                "bidtraces",
+                                "proposer_payload_delivered"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "disabled": false,
+                                    "description": {
+                                        "content": "A specific slot.",
+                                        "type": "text/plain"
+                                    },
+                                    "key": "slot",
+                                    "value": "1"
+                                },
+                                {
+                                    "disabled": false,
+                                    "description": {
+                                        "content": "A starting slot for multiple results.",
+                                        "type": "text/plain"
+                                    },
+                                    "key": "cursor",
+                                    "value": "1"
+                                },
+                                {
+                                    "disabled": false,
+                                    "description": {
+                                        "content": "The number of results.",
+                                        "type": "text/plain"
+                                    },
+                                    "key": "limit",
+                                    "value": "1"
+                                },
+                                {
+                                    "disabled": false,
+                                    "description": {
+                                        "content": "A specific block hash.",
+                                        "type": "text/plain"
+                                    },
+                                    "key": "block_hash",
+                                    "value": "0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2"
+                                },
+                                {
+                                    "disabled": false,
+                                    "description": {
+                                        "content": "A specific block number.",
+                                        "type": "text/plain"
+                                    },
+                                    "key": "block_number",
+                                    "value": "1"
+                                },
+                                {
+                                    "disabled": false,
+                                    "description": {
+                                        "content": "A specific proposer public key.",
+                                        "type": "text/plain"
+                                    },
+                                    "key": "proposer_pubkey",
+                                    "value": "0x93247f2209abcacf57b75a51dafae777f9dd38bc7053d1af526f220a7489a6d3a2753e5f3e8b1cfe39b56f43611df74a"
+                                },
+                                {
+                                    "disabled": false,
+                                    "description": {
+                                        "content": "A specific builder public key.",
+                                        "type": "text/plain"
+                                    },
+                                    "key": "builder_pubkey",
+                                    "value": "0x93247f2209abcacf57b75a51dafae777f9dd38bc7053d1af526f220a7489a6d3a2753e5f3e8b1cfe39b56f43611df74a"
+                                },
+                                {
+                                    "disabled": false,
+                                    "description": {
+                                        "content": "Sort results in order of...",
+                                        "type": "text/plain"
+                                    },
+                                    "key": "order_by",
+                                    "value": "-value"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "GET",
+                        "body": {},
+                        "auth": null
+                    },
+                    "response": [
+                        {
+                            "id": "c743e14d-ad2a-4a89-ab81-32f0bb970599",
+                            "name": "Success response.",
+                            "originalRequest": {
+                                "url": {
+                                    "path": [
+                                        "relay",
+                                        "v1",
+                                        "data",
+                                        "bidtraces",
+                                        "proposer_payload_delivered"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "A specific slot.",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "slot",
+                                            "value": "1"
+                                        },
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "A starting slot for multiple results.",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "cursor",
+                                            "value": "1"
+                                        },
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "The number of results.",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "limit",
+                                            "value": "1"
+                                        },
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "A specific block hash.",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "block_hash",
+                                            "value": "0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2"
+                                        },
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "A specific block number.",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "block_number",
+                                            "value": "1"
+                                        },
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "A specific proposer public key.",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "proposer_pubkey",
+                                            "value": "0x93247f2209abcacf57b75a51dafae777f9dd38bc7053d1af526f220a7489a6d3a2753e5f3e8b1cfe39b56f43611df74a"
+                                        },
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "A specific builder public key.",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "builder_pubkey",
+                                            "value": "0x93247f2209abcacf57b75a51dafae777f9dd38bc7053d1af526f220a7489a6d3a2753e5f3e8b1cfe39b56f43611df74a"
+                                        },
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "Sort results in order of...",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "order_by",
+                                            "value": "-value"
+                                        }
+                                    ],
+                                    "variable": []
+                                },
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "method": "GET",
+                                "body": {}
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": "[\n  {\n    \"slot\": \"1\",\n    \"parent_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"block_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"builder_pubkey\": \"0x93247f2209abcacf57b75a51dafae777f9dd38bc7053d1af526f220a7489a6d3a2753e5f3e8b1cfe39b56f43611df74a\",\n    \"proposer_pubkey\": \"0x93247f2209abcacf57b75a51dafae777f9dd38bc7053d1af526f220a7489a6d3a2753e5f3e8b1cfe39b56f43611df74a\",\n    \"proposer_fee_recipient\": \"0xAbcF8e0d4e9587369b2301D0790347320302cc09\",\n    \"gas_limit\": \"1\",\n    \"gas_used\": \"1\",\n    \"value\": \"1\",\n    \"block_number\": \"1\",\n    \"num_tx\": \"1\"\n  },\n  {\n    \"slot\": \"1\",\n    \"parent_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"block_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"builder_pubkey\": \"0x93247f2209abcacf57b75a51dafae777f9dd38bc7053d1af526f220a7489a6d3a2753e5f3e8b1cfe39b56f43611df74a\",\n    \"proposer_pubkey\": \"0x93247f2209abcacf57b75a51dafae777f9dd38bc7053d1af526f220a7489a6d3a2753e5f3e8b1cfe39b56f43611df74a\",\n    \"proposer_fee_recipient\": \"0xAbcF8e0d4e9587369b2301D0790347320302cc09\",\n    \"gas_limit\": \"1\",\n    \"gas_used\": \"1\",\n    \"value\": \"1\",\n    \"block_number\": \"1\",\n    \"num_tx\": \"1\"\n  }\n]",
+                            "cookie": [],
+                            "_postman_previewlanguage": "json"
+                        },
+                        {
+                            "id": "26945750-0158-438b-b212-8b183838e78c",
+                            "name": "Error response.",
+                            "originalRequest": {
+                                "url": {
+                                    "path": [
+                                        "relay",
+                                        "v1",
+                                        "data",
+                                        "bidtraces",
+                                        "proposer_payload_delivered"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "A specific slot.",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "slot",
+                                            "value": "1"
+                                        },
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "A starting slot for multiple results.",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "cursor",
+                                            "value": "1"
+                                        },
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "The number of results.",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "limit",
+                                            "value": "1"
+                                        },
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "A specific block hash.",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "block_hash",
+                                            "value": "0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2"
+                                        },
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "A specific block number.",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "block_number",
+                                            "value": "1"
+                                        },
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "A specific proposer public key.",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "proposer_pubkey",
+                                            "value": "0x93247f2209abcacf57b75a51dafae777f9dd38bc7053d1af526f220a7489a6d3a2753e5f3e8b1cfe39b56f43611df74a"
+                                        },
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "A specific builder public key.",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "builder_pubkey",
+                                            "value": "0x93247f2209abcacf57b75a51dafae777f9dd38bc7053d1af526f220a7489a6d3a2753e5f3e8b1cfe39b56f43611df74a"
+                                        },
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "Sort results in order of...",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "order_by",
+                                            "value": "-value"
+                                        }
+                                    ],
+                                    "variable": []
+                                },
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "method": "GET",
+                                "body": {}
+                            },
+                            "status": "Bad Request",
+                            "code": 400,
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": "{\n  \"code\": 400,\n  \"message\": \"invalid block_hash argument\"\n}",
+                            "cookie": [],
+                            "_postman_previewlanguage": "json"
+                        },
+                        {
+                            "id": "b5d9b7e5-5971-42f9-a4dd-2a78b9fcdb25",
+                            "name": "An internal error on the relay.",
+                            "originalRequest": {
+                                "url": {
+                                    "path": [
+                                        "relay",
+                                        "v1",
+                                        "data",
+                                        "bidtraces",
+                                        "proposer_payload_delivered"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "A specific slot.",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "slot",
+                                            "value": "1"
+                                        },
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "A starting slot for multiple results.",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "cursor",
+                                            "value": "1"
+                                        },
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "The number of results.",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "limit",
+                                            "value": "1"
+                                        },
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "A specific block hash.",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "block_hash",
+                                            "value": "0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2"
+                                        },
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "A specific block number.",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "block_number",
+                                            "value": "1"
+                                        },
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "A specific proposer public key.",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "proposer_pubkey",
+                                            "value": "0x93247f2209abcacf57b75a51dafae777f9dd38bc7053d1af526f220a7489a6d3a2753e5f3e8b1cfe39b56f43611df74a"
+                                        },
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "A specific builder public key.",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "builder_pubkey",
+                                            "value": "0x93247f2209abcacf57b75a51dafae777f9dd38bc7053d1af526f220a7489a6d3a2753e5f3e8b1cfe39b56f43611df74a"
+                                        },
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "Sort results in order of...",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "order_by",
+                                            "value": "-value"
+                                        }
+                                    ],
+                                    "variable": []
+                                },
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "method": "GET",
+                                "body": {}
+                            },
+                            "status": "Internal Server Error",
+                            "code": 500,
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": "{\n  \"code\": 500,\n  \"message\": \"internal server error\"\n}",
+                            "cookie": [],
+                            "_postman_previewlanguage": "json"
+                        }
+                    ],
+                    "event": [],
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    }
+                },
+                {
+                    "id": "20169a40-f532-42f1-bbcd-b3c71bcb8d34",
+                    "name": "Get builder bid submissions.",
+                    "request": {
+                        "name": "Get builder bid submissions.",
+                        "description": {
+                            "content": "* Returns a list of builder bids without execution payloads.\n\n* Only submissions that were successfully verified.\n",
+                            "type": "text/plain"
+                        },
+                        "url": {
+                            "path": [
+                                "relay",
+                                "v1",
+                                "data",
+                                "bidtraces",
+                                "builder_blocks_received"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "disabled": false,
+                                    "description": {
+                                        "content": "A specific slot.",
+                                        "type": "text/plain"
+                                    },
+                                    "key": "slot",
+                                    "value": "1"
+                                },
+                                {
+                                    "disabled": false,
+                                    "description": {
+                                        "content": "A specific block hash.",
+                                        "type": "text/plain"
+                                    },
+                                    "key": "block_hash",
+                                    "value": "0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2"
+                                },
+                                {
+                                    "disabled": false,
+                                    "description": {
+                                        "content": "A specific block number.",
+                                        "type": "text/plain"
+                                    },
+                                    "key": "block_number",
+                                    "value": "1"
+                                },
+                                {
+                                    "disabled": false,
+                                    "description": {
+                                        "content": "A specific builder public key.",
+                                        "type": "text/plain"
+                                    },
+                                    "key": "builder_pubkey",
+                                    "value": "0x93247f2209abcacf57b75a51dafae777f9dd38bc7053d1af526f220a7489a6d3a2753e5f3e8b1cfe39b56f43611df74a"
+                                },
+                                {
+                                    "disabled": false,
+                                    "description": {
+                                        "content": "The number of results.",
+                                        "type": "text/plain"
+                                    },
+                                    "key": "limit",
+                                    "value": "1"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "GET",
+                        "body": {},
+                        "auth": null
+                    },
+                    "response": [
+                        {
+                            "id": "6bcd1cfc-d6c0-450c-a421-9ac664248e88",
+                            "name": "Success response.",
+                            "originalRequest": {
+                                "url": {
+                                    "path": [
+                                        "relay",
+                                        "v1",
+                                        "data",
+                                        "bidtraces",
+                                        "builder_blocks_received"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "A specific slot.",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "slot",
+                                            "value": "1"
+                                        },
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "A specific block hash.",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "block_hash",
+                                            "value": "0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2"
+                                        },
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "A specific block number.",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "block_number",
+                                            "value": "1"
+                                        },
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "A specific builder public key.",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "builder_pubkey",
+                                            "value": "0x93247f2209abcacf57b75a51dafae777f9dd38bc7053d1af526f220a7489a6d3a2753e5f3e8b1cfe39b56f43611df74a"
+                                        },
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "The number of results.",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "limit",
+                                            "value": "1"
+                                        }
+                                    ],
+                                    "variable": []
+                                },
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "method": "GET",
+                                "body": {}
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": "[\n  {\n    \"slot\": \"1\",\n    \"parent_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"block_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"builder_pubkey\": \"0x93247f2209abcacf57b75a51dafae777f9dd38bc7053d1af526f220a7489a6d3a2753e5f3e8b1cfe39b56f43611df74a\",\n    \"proposer_pubkey\": \"0x93247f2209abcacf57b75a51dafae777f9dd38bc7053d1af526f220a7489a6d3a2753e5f3e8b1cfe39b56f43611df74a\",\n    \"proposer_fee_recipient\": \"0xAbcF8e0d4e9587369b2301D0790347320302cc09\",\n    \"gas_limit\": \"1\",\n    \"gas_used\": \"1\",\n    \"value\": \"1\",\n    \"block_number\": \"1\",\n    \"num_tx\": \"1\",\n    \"timestamp\": \"1\",\n    \"timestamp_ms\": \"1\"\n  },\n  {\n    \"slot\": \"1\",\n    \"parent_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"block_hash\": \"0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2\",\n    \"builder_pubkey\": \"0x93247f2209abcacf57b75a51dafae777f9dd38bc7053d1af526f220a7489a6d3a2753e5f3e8b1cfe39b56f43611df74a\",\n    \"proposer_pubkey\": \"0x93247f2209abcacf57b75a51dafae777f9dd38bc7053d1af526f220a7489a6d3a2753e5f3e8b1cfe39b56f43611df74a\",\n    \"proposer_fee_recipient\": \"0xAbcF8e0d4e9587369b2301D0790347320302cc09\",\n    \"gas_limit\": \"1\",\n    \"gas_used\": \"1\",\n    \"value\": \"1\",\n    \"block_number\": \"1\",\n    \"num_tx\": \"1\",\n    \"timestamp\": \"1\",\n    \"timestamp_ms\": \"1\"\n  }\n]",
+                            "cookie": [],
+                            "_postman_previewlanguage": "json"
+                        },
+                        {
+                            "id": "f33ce032-e0e6-459c-b1f3-2d23e609438b",
+                            "name": "Error response.",
+                            "originalRequest": {
+                                "url": {
+                                    "path": [
+                                        "relay",
+                                        "v1",
+                                        "data",
+                                        "bidtraces",
+                                        "builder_blocks_received"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "A specific slot.",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "slot",
+                                            "value": "1"
+                                        },
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "A specific block hash.",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "block_hash",
+                                            "value": "0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2"
+                                        },
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "A specific block number.",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "block_number",
+                                            "value": "1"
+                                        },
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "A specific builder public key.",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "builder_pubkey",
+                                            "value": "0x93247f2209abcacf57b75a51dafae777f9dd38bc7053d1af526f220a7489a6d3a2753e5f3e8b1cfe39b56f43611df74a"
+                                        },
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "The number of results.",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "limit",
+                                            "value": "1"
+                                        }
+                                    ],
+                                    "variable": []
+                                },
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "method": "GET",
+                                "body": {}
+                            },
+                            "status": "Bad Request",
+                            "code": 400,
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": "{\n  \"code\": 400,\n  \"message\": \"cannot specify both slot and cursor\"\n}",
+                            "cookie": [],
+                            "_postman_previewlanguage": "json"
+                        },
+                        {
+                            "id": "8cd5e022-1adc-451d-af2b-2ac13cf567b2",
+                            "name": "An internal error on the relay.",
+                            "originalRequest": {
+                                "url": {
+                                    "path": [
+                                        "relay",
+                                        "v1",
+                                        "data",
+                                        "bidtraces",
+                                        "builder_blocks_received"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "A specific slot.",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "slot",
+                                            "value": "1"
+                                        },
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "A specific block hash.",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "block_hash",
+                                            "value": "0xcf8e0d4e9587369b2301d0790347320302cc0943d5a1884560367e8208d920f2"
+                                        },
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "A specific block number.",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "block_number",
+                                            "value": "1"
+                                        },
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "A specific builder public key.",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "builder_pubkey",
+                                            "value": "0x93247f2209abcacf57b75a51dafae777f9dd38bc7053d1af526f220a7489a6d3a2753e5f3e8b1cfe39b56f43611df74a"
+                                        },
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "The number of results.",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "limit",
+                                            "value": "1"
+                                        }
+                                    ],
+                                    "variable": []
+                                },
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "method": "GET",
+                                "body": {}
+                            },
+                            "status": "Internal Server Error",
+                            "code": 500,
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": "{\n  \"code\": 500,\n  \"message\": \"internal server error\"\n}",
+                            "cookie": [],
+                            "_postman_previewlanguage": "json"
+                        }
+                    ],
+                    "event": [],
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    }
+                },
+                {
+                    "id": "a88ae696-15dd-4393-837b-75960198b099",
+                    "name": "Check that a validator is registered with the relay.",
+                    "request": {
+                        "name": "Check that a validator is registered with the relay.",
+                        "description": {
+                            "content": "* Returns the latest validator registration for a given pubkey.\n\n* Useful to check whether your own registration was successful.\n",
+                            "type": "text/plain"
+                        },
+                        "url": {
+                            "path": [
+                                "relay",
+                                "v1",
+                                "data",
+                                "validator_registration"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "disabled": false,
+                                    "description": {
+                                        "content": "(Required) The validator's public key.",
+                                        "type": "text/plain"
+                                    },
+                                    "key": "pubkey",
+                                    "value": "0x93247f2209abcacf57b75a51dafae777f9dd38bc7053d1af526f220a7489a6d3a2753e5f3e8b1cfe39b56f43611df74a"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "GET",
+                        "body": {},
+                        "auth": null
+                    },
+                    "response": [
+                        {
+                            "id": "6a207b0f-d045-475b-a571-d78e5cea89ec",
+                            "name": "Success response.",
+                            "originalRequest": {
+                                "url": {
+                                    "path": [
+                                        "relay",
+                                        "v1",
+                                        "data",
+                                        "validator_registration"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "(Required) The validator's public key.",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "pubkey",
+                                            "value": "0x93247f2209abcacf57b75a51dafae777f9dd38bc7053d1af526f220a7489a6d3a2753e5f3e8b1cfe39b56f43611df74a"
+                                        }
+                                    ],
+                                    "variable": []
+                                },
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "method": "GET",
+                                "body": {}
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": "{\n  \"message\": {\n    \"fee_recipient\": \"0xAbcF8e0d4e9587369b2301D0790347320302cc09\",\n    \"gas_limit\": \"1\",\n    \"timestamp\": \"1\",\n    \"pubkey\": \"0x93247f2209abcacf57b75a51dafae777f9dd38bc7053d1af526f220a7489a6d3a2753e5f3e8b1cfe39b56f43611df74a\"\n  },\n  \"signature\": \"0x1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505cc411d61252fb6cb3fa0017b679f8bb2305b26a285fa2737f175668d0dff91cc1b66ac1fb663c9bc59509846d6ec05345bd908eda73e670af888da41af171505\"\n}",
+                            "cookie": [],
+                            "_postman_previewlanguage": "json"
+                        },
+                        {
+                            "id": "7777ae11-8493-4871-ae03-d9c6860545fb",
+                            "name": "Error response.",
+                            "originalRequest": {
+                                "url": {
+                                    "path": [
+                                        "relay",
+                                        "v1",
+                                        "data",
+                                        "validator_registration"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "(Required) The validator's public key.",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "pubkey",
+                                            "value": "0x93247f2209abcacf57b75a51dafae777f9dd38bc7053d1af526f220a7489a6d3a2753e5f3e8b1cfe39b56f43611df74a"
+                                        }
+                                    ],
+                                    "variable": []
+                                },
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "method": "GET",
+                                "body": {}
+                            },
+                            "status": "Bad Request",
+                            "code": 400,
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": "{\n  \"code\": 400,\n  \"message\": \"missing pubkey argument\"\n}",
+                            "cookie": [],
+                            "_postman_previewlanguage": "json"
+                        },
+                        {
+                            "id": "3609ae1c-3e68-4d6f-b15c-0617f12a4ae6",
+                            "name": "An internal error on the relay.",
+                            "originalRequest": {
+                                "url": {
+                                    "path": [
+                                        "relay",
+                                        "v1",
+                                        "data",
+                                        "validator_registration"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "(Required) The validator's public key.",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "pubkey",
+                                            "value": "0x93247f2209abcacf57b75a51dafae777f9dd38bc7053d1af526f220a7489a6d3a2753e5f3e8b1cfe39b56f43611df74a"
+                                        }
+                                    ],
+                                    "variable": []
+                                },
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "method": "GET",
+                                "body": {}
+                            },
+                            "status": "Internal Server Error",
+                            "code": 500,
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": "{\n  \"code\": 500,\n  \"message\": \"internal server error\"\n}",
+                            "cookie": [],
+                            "_postman_previewlanguage": "json"
+                        }
+                    ],
+                    "event": [],
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [],
+    "variable": [
+        {
+            "key": "server_url",
+            "value": "http://localhost:18550"
+        },
+        {
+            "key": "baseUrl",
+            "value": "{{server_url}}"
+        }
+    ],
+    "info": {
+        "_postman_id": "85e25bbe-8baf-4cbb-bdd6-4c5b36d286e8",
+        "name": "Relay API",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": {
+            "content": "API specification for MEV-Boost PBS relays.\n\n\nContact Support:\n Name: GitHub Repository",
+            "type": "text/plain"
+        }
+    }
+}
