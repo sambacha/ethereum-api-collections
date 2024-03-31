@@ -1,0 +1,236 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string"
+    },
+    "data": {
+      "type": "object",
+      "properties": {
+        "slot": {
+          "type": "integer"
+        },
+        "block": {
+          "type": "integer"
+        },
+        "block_hash": {
+          "type": "string"
+        },
+        "builder": {
+          "type": "string"
+        },
+        "validator": {
+          "type": "string"
+        },
+        "fee_recipient": {
+          "type": "string"
+        },
+        "coinbase": {
+          "type": "string"
+        },
+        "extra": {
+          "type": "string"
+        },
+        "payout": {
+          "type": "number"
+        },
+        "payment": {
+          "type": "number"
+        },
+        "difference": {
+          "type": "integer"
+        },
+        "gas_used": {
+          "type": "integer"
+        },
+        "base_fee": {
+          "type": "number"
+        },
+        "avg_gas_tip": {
+          "type": "number"
+        },
+        "best": {
+          "type": "object",
+          "properties": {
+            "slot": {
+              "type": "string"
+            },
+            "parent_hash": {
+              "type": "string"
+            },
+            "block_hash": {
+              "type": "string"
+            },
+            "builder_pubkey": {
+              "type": "string"
+            },
+            "proposer_pubkey": {
+              "type": "string"
+            },
+            "proposer_fee_recipient": {
+              "type": "string"
+            },
+            "gas_limit": {
+              "type": "string"
+            },
+            "gas_used": {
+              "type": "string"
+            },
+            "value": {
+              "type": "string"
+            },
+            "block_number": {
+              "type": "string"
+            },
+            "num_tx": {
+              "type": "string"
+            },
+            "timestamp": {
+              "type": "string"
+            },
+            "timestamp_ms": {
+              "type": "string"
+            },
+            "optimistic_submission": {
+              "type": "boolean"
+            },
+            "builder": {
+              "type": "string"
+            },
+            "relays": {
+              "type": "object",
+              "properties": {
+                "https://relay.ultrasound.money": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "https://relay.ultrasound.money"
+              ]
+            }
+          },
+          "required": [
+            "slot",
+            "parent_hash",
+            "block_hash",
+            "builder_pubkey",
+            "proposer_pubkey",
+            "proposer_fee_recipient",
+            "gas_limit",
+            "gas_used",
+            "value",
+            "block_number",
+            "num_tx",
+            "timestamp",
+            "timestamp_ms",
+            "optimistic_submission",
+            "builder",
+            "relays"
+          ]
+        },
+        "winner": {
+          "type": "object",
+          "properties": {
+            "slot": {
+              "type": "string"
+            },
+            "parent_hash": {
+              "type": "string"
+            },
+            "block_hash": {
+              "type": "string"
+            },
+            "builder_pubkey": {
+              "type": "string"
+            },
+            "proposer_pubkey": {
+              "type": "string"
+            },
+            "proposer_fee_recipient": {
+              "type": "string"
+            },
+            "gas_limit": {
+              "type": "string"
+            },
+            "gas_used": {
+              "type": "string"
+            },
+            "value": {
+              "type": "string"
+            },
+            "block_number": {
+              "type": "string"
+            },
+            "num_tx": {
+              "type": "string"
+            },
+            "timestamp": {
+              "type": "string"
+            },
+            "timestamp_ms": {
+              "type": "string"
+            },
+            "optimistic_submission": {
+              "type": "boolean"
+            },
+            "builder": {
+              "type": "string"
+            },
+            "relays": {
+              "type": "object"
+            }
+          },
+          "required": [
+            "slot",
+            "parent_hash",
+            "block_hash",
+            "builder_pubkey",
+            "proposer_pubkey",
+            "proposer_fee_recipient",
+            "gas_limit",
+            "gas_used",
+            "value",
+            "block_number",
+            "num_tx",
+            "timestamp",
+            "timestamp_ms",
+            "optimistic_submission",
+            "builder",
+            "relays"
+          ]
+        },
+        "timestamp": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "slot",
+        "block",
+        "block_hash",
+        "builder",
+        "validator",
+        "fee_recipient",
+        "coinbase",
+        "extra",
+        "payout",
+        "payment",
+        "difference",
+        "gas_used",
+        "base_fee",
+        "avg_gas_tip",
+        "best",
+        "winner",
+        "timestamp"
+      ]
+    },
+    "timestamp": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "type",
+    "data",
+    "timestamp"
+  ]
+}

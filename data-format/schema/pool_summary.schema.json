@@ -1,0 +1,806 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string"
+    },
+    "data": {
+      "type": "object",
+      "properties": {
+        "block": {
+          "type": "integer"
+        },
+        "base_fee": {
+          "type": "number"
+        },
+        "next_base_fee": {
+          "type": "number"
+        },
+        "median_priority_fee": {
+          "type": "integer"
+        },
+        "min_priority_fee": {
+          "type": "integer"
+        },
+        "new": {
+          "type": "object",
+          "properties": {
+            "0x0cadf4b712028d652d989c0470901ce99987e0894818efc3532e671d1d9b5564": {
+              "type": "object",
+              "properties": {
+                "hash": {
+                  "type": "string"
+                },
+                "block": {
+                  "type": "integer"
+                },
+                "class": {
+                  "type": "string"
+                },
+                "method_id": {
+                  "type": "string"
+                },
+                "method": {
+                  "type": "string"
+                },
+                "from_label": {
+                  "type": "string"
+                },
+                "target_label": {
+                  "type": "string"
+                },
+                "tags": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "string"
+                    }
+                  ]
+                },
+                "from": {
+                  "type": "string"
+                },
+                "to": {
+                  "type": "string"
+                },
+                "data_size": {
+                  "type": "integer"
+                },
+                "gas_limit": {
+                  "type": "integer"
+                },
+                "status": {
+                  "type": "integer"
+                },
+                "fee": {
+                  "type": "number"
+                },
+                "tip": {
+                  "type": "number"
+                },
+                "price": {
+                  "type": "integer"
+                },
+                "tip_reward": {
+                  "type": "number"
+                },
+                "value": {
+                  "type": "number"
+                },
+                "nonce": {
+                  "type": "integer"
+                },
+                "position": {
+                  "type": "integer"
+                },
+                "coinbase": {
+                  "type": "integer"
+                },
+                "transfers": {
+                  "type": "array",
+                  "items": {}
+                },
+                "timestamp": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "hash",
+                "block",
+                "class",
+                "method_id",
+                "method",
+                "from_label",
+                "target_label",
+                "tags",
+                "from",
+                "to",
+                "data_size",
+                "gas_limit",
+                "status",
+                "fee",
+                "tip",
+                "price",
+                "tip_reward",
+                "value",
+                "nonce",
+                "position",
+                "coinbase",
+                "transfers",
+                "timestamp"
+              ]
+            },
+            "0x2b712ae87d3ec9f15fe9313e408c0897eb4498182e14fcb4b395748cc45a2153": {
+              "type": "object",
+              "properties": {
+                "hash": {
+                  "type": "string"
+                },
+                "block": {
+                  "type": "integer"
+                },
+                "class": {
+                  "type": "string"
+                },
+                "method_id": {
+                  "type": "string"
+                },
+                "method": {
+                  "type": "string"
+                },
+                "from_label": {
+                  "type": "string"
+                },
+                "target_label": {
+                  "type": "string"
+                },
+                "tags": {
+                  "type": "array",
+                  "items": {}
+                },
+                "from": {
+                  "type": "string"
+                },
+                "to": {
+                  "type": "string"
+                },
+                "data_size": {
+                  "type": "integer"
+                },
+                "gas_limit": {
+                  "type": "integer"
+                },
+                "status": {
+                  "type": "integer"
+                },
+                "fee": {
+                  "type": "number"
+                },
+                "tip": {
+                  "type": "number"
+                },
+                "price": {
+                  "type": "integer"
+                },
+                "tip_reward": {
+                  "type": "number"
+                },
+                "value": {
+                  "type": "number"
+                },
+                "nonce": {
+                  "type": "integer"
+                },
+                "position": {
+                  "type": "integer"
+                },
+                "coinbase": {
+                  "type": "integer"
+                },
+                "transfers": {
+                  "type": "array",
+                  "items": {}
+                },
+                "timestamp": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "hash",
+                "block",
+                "class",
+                "method_id",
+                "method",
+                "from_label",
+                "target_label",
+                "tags",
+                "from",
+                "to",
+                "data_size",
+                "gas_limit",
+                "status",
+                "fee",
+                "tip",
+                "price",
+                "tip_reward",
+                "value",
+                "nonce",
+                "position",
+                "coinbase",
+                "transfers",
+                "timestamp"
+              ]
+            },
+            "0x372175825b77ce6275053237e39aaf34da4950cddbf25bfe865c894b7c7e3c22": {
+              "type": "object",
+              "properties": {
+                "hash": {
+                  "type": "string"
+                },
+                "block": {
+                  "type": "integer"
+                },
+                "class": {
+                  "type": "string"
+                },
+                "method_id": {
+                  "type": "string"
+                },
+                "method": {
+                  "type": "string"
+                },
+                "from_label": {
+                  "type": "string"
+                },
+                "target_label": {
+                  "type": "string"
+                },
+                "tags": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ]
+                },
+                "from": {
+                  "type": "string"
+                },
+                "to": {
+                  "type": "string"
+                },
+                "data_size": {
+                  "type": "integer"
+                },
+                "gas_limit": {
+                  "type": "integer"
+                },
+                "status": {
+                  "type": "integer"
+                },
+                "fee": {
+                  "type": "number"
+                },
+                "tip": {
+                  "type": "number"
+                },
+                "price": {
+                  "type": "integer"
+                },
+                "tip_reward": {
+                  "type": "number"
+                },
+                "value": {
+                  "type": "integer"
+                },
+                "nonce": {
+                  "type": "integer"
+                },
+                "position": {
+                  "type": "integer"
+                },
+                "coinbase": {
+                  "type": "integer"
+                },
+                "transfers": {
+                  "type": "array",
+                  "items": {}
+                },
+                "timestamp": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "hash",
+                "block",
+                "class",
+                "method_id",
+                "method",
+                "from_label",
+                "target_label",
+                "tags",
+                "from",
+                "to",
+                "data_size",
+                "gas_limit",
+                "status",
+                "fee",
+                "tip",
+                "price",
+                "tip_reward",
+                "value",
+                "nonce",
+                "position",
+                "coinbase",
+                "transfers",
+                "timestamp"
+              ]
+            },
+            "0x551b68da16436d41569efede1e8ea019f6e3b4f28fd8f556321b3207c0ff9289": {
+              "type": "object",
+              "properties": {
+                "hash": {
+                  "type": "string"
+                },
+                "block": {
+                  "type": "integer"
+                },
+                "class": {
+                  "type": "string"
+                },
+                "method_id": {
+                  "type": "string"
+                },
+                "method": {
+                  "type": "string"
+                },
+                "from_label": {
+                  "type": "string"
+                },
+                "target_label": {
+                  "type": "string"
+                },
+                "tags": {
+                  "type": "array",
+                  "items": {}
+                },
+                "from": {
+                  "type": "string"
+                },
+                "to": {
+                  "type": "string"
+                },
+                "data_size": {
+                  "type": "integer"
+                },
+                "gas_limit": {
+                  "type": "integer"
+                },
+                "status": {
+                  "type": "integer"
+                },
+                "fee": {
+                  "type": "number"
+                },
+                "tip": {
+                  "type": "number"
+                },
+                "price": {
+                  "type": "integer"
+                },
+                "tip_reward": {
+                  "type": "number"
+                },
+                "value": {
+                  "type": "integer"
+                },
+                "nonce": {
+                  "type": "integer"
+                },
+                "position": {
+                  "type": "integer"
+                },
+                "coinbase": {
+                  "type": "integer"
+                },
+                "transfers": {
+                  "type": "array",
+                  "items": {}
+                },
+                "timestamp": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "hash",
+                "block",
+                "class",
+                "method_id",
+                "method",
+                "from_label",
+                "target_label",
+                "tags",
+                "from",
+                "to",
+                "data_size",
+                "gas_limit",
+                "status",
+                "fee",
+                "tip",
+                "price",
+                "tip_reward",
+                "value",
+                "nonce",
+                "position",
+                "coinbase",
+                "transfers",
+                "timestamp"
+              ]
+            },
+            "0xb550d96f9aef2865552a3204709747cada727b4b0d129a842f24386c5f1114b7": {
+              "type": "object",
+              "properties": {
+                "hash": {
+                  "type": "string"
+                },
+                "block": {
+                  "type": "integer"
+                },
+                "class": {
+                  "type": "string"
+                },
+                "method_id": {
+                  "type": "string"
+                },
+                "method": {
+                  "type": "string"
+                },
+                "from_label": {
+                  "type": "string"
+                },
+                "target_label": {
+                  "type": "string"
+                },
+                "tags": {
+                  "type": "array",
+                  "items": {}
+                },
+                "from": {
+                  "type": "string"
+                },
+                "to": {
+                  "type": "string"
+                },
+                "data_size": {
+                  "type": "integer"
+                },
+                "gas_limit": {
+                  "type": "integer"
+                },
+                "status": {
+                  "type": "integer"
+                },
+                "fee": {
+                  "type": "number"
+                },
+                "tip": {
+                  "type": "number"
+                },
+                "price": {
+                  "type": "integer"
+                },
+                "tip_reward": {
+                  "type": "number"
+                },
+                "value": {
+                  "type": "integer"
+                },
+                "nonce": {
+                  "type": "integer"
+                },
+                "position": {
+                  "type": "integer"
+                },
+                "coinbase": {
+                  "type": "integer"
+                },
+                "transfers": {
+                  "type": "array",
+                  "items": {}
+                },
+                "timestamp": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "hash",
+                "block",
+                "class",
+                "method_id",
+                "method",
+                "from_label",
+                "target_label",
+                "tags",
+                "from",
+                "to",
+                "data_size",
+                "gas_limit",
+                "status",
+                "fee",
+                "tip",
+                "price",
+                "tip_reward",
+                "value",
+                "nonce",
+                "position",
+                "coinbase",
+                "transfers",
+                "timestamp"
+              ]
+            },
+            "0xbe0c73d95acfe4b31b5ab31e8897fbefc2f7aacf311bd81f0194af99dd4bce02": {
+              "type": "object",
+              "properties": {
+                "hash": {
+                  "type": "string"
+                },
+                "block": {
+                  "type": "integer"
+                },
+                "class": {
+                  "type": "string"
+                },
+                "method_id": {
+                  "type": "string"
+                },
+                "method": {
+                  "type": "string"
+                },
+                "from_label": {
+                  "type": "string"
+                },
+                "target_label": {
+                  "type": "string"
+                },
+                "tags": {
+                  "type": "array",
+                  "items": {}
+                },
+                "from": {
+                  "type": "string"
+                },
+                "to": {
+                  "type": "string"
+                },
+                "data_size": {
+                  "type": "integer"
+                },
+                "gas_limit": {
+                  "type": "integer"
+                },
+                "status": {
+                  "type": "integer"
+                },
+                "fee": {
+                  "type": "number"
+                },
+                "tip": {
+                  "type": "number"
+                },
+                "price": {
+                  "type": "integer"
+                },
+                "tip_reward": {
+                  "type": "number"
+                },
+                "value": {
+                  "type": "number"
+                },
+                "nonce": {
+                  "type": "integer"
+                },
+                "position": {
+                  "type": "integer"
+                },
+                "coinbase": {
+                  "type": "integer"
+                },
+                "transfers": {
+                  "type": "array",
+                  "items": {}
+                },
+                "timestamp": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "hash",
+                "block",
+                "class",
+                "method_id",
+                "method",
+                "from_label",
+                "target_label",
+                "tags",
+                "from",
+                "to",
+                "data_size",
+                "gas_limit",
+                "status",
+                "fee",
+                "tip",
+                "price",
+                "tip_reward",
+                "value",
+                "nonce",
+                "position",
+                "coinbase",
+                "transfers",
+                "timestamp"
+              ]
+            },
+            "0xf55b542e66d0946cf889edac0fe444bc3d27758b97a731178991229a00d824b1": {
+              "type": "object",
+              "properties": {
+                "hash": {
+                  "type": "string"
+                },
+                "block": {
+                  "type": "integer"
+                },
+                "class": {
+                  "type": "string"
+                },
+                "method_id": {
+                  "type": "string"
+                },
+                "method": {
+                  "type": "string"
+                },
+                "from_label": {
+                  "type": "string"
+                },
+                "target_label": {
+                  "type": "string"
+                },
+                "tags": {
+                  "type": "array",
+                  "items": {}
+                },
+                "from": {
+                  "type": "string"
+                },
+                "to": {
+                  "type": "string"
+                },
+                "data_size": {
+                  "type": "integer"
+                },
+                "gas_limit": {
+                  "type": "integer"
+                },
+                "status": {
+                  "type": "integer"
+                },
+                "fee": {
+                  "type": "number"
+                },
+                "tip": {
+                  "type": "number"
+                },
+                "price": {
+                  "type": "number"
+                },
+                "tip_reward": {
+                  "type": "number"
+                },
+                "value": {
+                  "type": "integer"
+                },
+                "nonce": {
+                  "type": "integer"
+                },
+                "position": {
+                  "type": "integer"
+                },
+                "coinbase": {
+                  "type": "integer"
+                },
+                "transfers": {
+                  "type": "array",
+                  "items": {}
+                },
+                "timestamp": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "hash",
+                "block",
+                "class",
+                "method_id",
+                "method",
+                "from_label",
+                "target_label",
+                "tags",
+                "from",
+                "to",
+                "data_size",
+                "gas_limit",
+                "status",
+                "fee",
+                "tip",
+                "price",
+                "tip_reward",
+                "value",
+                "nonce",
+                "position",
+                "coinbase",
+                "transfers",
+                "timestamp"
+              ]
+            }
+          },
+          "required": [
+            "0x0cadf4b712028d652d989c0470901ce99987e0894818efc3532e671d1d9b5564",
+            "0x2b712ae87d3ec9f15fe9313e408c0897eb4498182e14fcb4b395748cc45a2153",
+            "0x372175825b77ce6275053237e39aaf34da4950cddbf25bfe865c894b7c7e3c22",
+            "0x551b68da16436d41569efede1e8ea019f6e3b4f28fd8f556321b3207c0ff9289",
+            "0xb550d96f9aef2865552a3204709747cada727b4b0d129a842f24386c5f1114b7",
+            "0xbe0c73d95acfe4b31b5ab31e8897fbefc2f7aacf311bd81f0194af99dd4bce02",
+            "0xf55b542e66d0946cf889edac0fe444bc3d27758b97a731178991229a00d824b1"
+          ]
+        },
+        "written": {
+          "type": "array",
+          "items": {}
+        },
+        "gas_pool": {
+          "type": "integer"
+        },
+        "slot": {
+          "type": "integer"
+        },
+        "slot_timestamp": {
+          "type": "integer"
+        },
+        "epoch": {
+          "type": "integer"
+        },
+        "epoch_transition": {
+          "type": "boolean"
+        },
+        "timestamp": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "block",
+        "base_fee",
+        "next_base_fee",
+        "median_priority_fee",
+        "min_priority_fee",
+        "new",
+        "written",
+        "gas_pool",
+        "slot",
+        "slot_timestamp",
+        "epoch",
+        "epoch_transition",
+        "timestamp"
+      ]
+    },
+    "timestamp": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "type",
+    "data",
+    "timestamp"
+  ]
+}

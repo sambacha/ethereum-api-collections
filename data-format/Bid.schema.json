@@ -1,0 +1,575 @@
+{
+  "type": "object",
+  "properties": {
+    "slot": {
+      "type": "integer"
+    },
+    "block": {
+      "type": "integer"
+    },
+    "validator": {
+      "type": "string"
+    },
+    "fee_recipient": {
+      "type": "string"
+    },
+    "best": {
+      "type": "object",
+      "properties": {
+        "builder": {
+          "type": "string"
+        },
+        "block_hash": {
+          "type": "string"
+        },
+        "gas_used": {
+          "type": "integer"
+        },
+        "value": {
+          "type": "number"
+        },
+        "num_tx": {
+          "type": "integer"
+        },
+        "timestamp": {
+          "type": "integer"
+        },
+        "relays": {
+          "type": "object",
+          "properties": {
+            "https://agnostic-relay.net": {
+              "type": "boolean"
+            },
+            "https://relay.edennetwork.io": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "https://agnostic-relay.net",
+            "https://relay.edennetwork.io"
+          ]
+        }
+      },
+      "required": [
+        "builder",
+        "block_hash",
+        "gas_used",
+        "value",
+        "num_tx",
+        "timestamp",
+        "relays"
+      ]
+    },
+    "best_by_builder": {
+      "type": "object",
+      "properties": {
+        "<unknown>": {
+          "type": "object",
+          "properties": {
+            "builder": {
+              "type": "string"
+            },
+            "block_hash": {
+              "type": "string"
+            },
+            "gas_used": {
+              "type": "integer"
+            },
+            "value": {
+              "type": "number"
+            },
+            "num_tx": {
+              "type": "integer"
+            },
+            "timestamp": {
+              "type": "integer"
+            },
+            "relays": {
+              "type": "object",
+              "properties": {
+                "https://agnostic-relay.net": {
+                  "type": "boolean"
+                },
+                "https://relay.ultrasound.money": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "https://agnostic-relay.net",
+                "https://relay.ultrasound.money"
+              ]
+            }
+          },
+          "required": [
+            "builder",
+            "block_hash",
+            "gas_used",
+            "value",
+            "num_tx",
+            "timestamp",
+            "relays"
+          ]
+        },
+        "EigenPhi": {
+          "type": "object",
+          "properties": {
+            "builder": {
+              "type": "string"
+            },
+            "block_hash": {
+              "type": "string"
+            },
+            "gas_used": {
+              "type": "integer"
+            },
+            "value": {
+              "type": "number"
+            },
+            "num_tx": {
+              "type": "integer"
+            },
+            "timestamp": {
+              "type": "integer"
+            },
+            "relays": {
+              "type": "object",
+              "properties": {
+                "https://relay.edennetwork.io": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "https://relay.edennetwork.io"
+              ]
+            }
+          },
+          "required": [
+            "builder",
+            "block_hash",
+            "gas_used",
+            "value",
+            "num_tx",
+            "timestamp",
+            "relays"
+          ]
+        },
+        "beaverbuild": {
+          "type": "object",
+          "properties": {
+            "builder": {
+              "type": "string"
+            },
+            "block_hash": {
+              "type": "string"
+            },
+            "gas_used": {
+              "type": "integer"
+            },
+            "value": {
+              "type": "number"
+            },
+            "num_tx": {
+              "type": "integer"
+            },
+            "timestamp": {
+              "type": "integer"
+            },
+            "relays": {
+              "type": "object",
+              "properties": {
+                "https://agnostic-relay.net": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "https://agnostic-relay.net"
+              ]
+            }
+          },
+          "required": [
+            "builder",
+            "block_hash",
+            "gas_used",
+            "value",
+            "num_tx",
+            "timestamp",
+            "relays"
+          ]
+        },
+        "boba-builder": {
+          "type": "object",
+          "properties": {
+            "builder": {
+              "type": "string"
+            },
+            "block_hash": {
+              "type": "string"
+            },
+            "gas_used": {
+              "type": "integer"
+            },
+            "value": {
+              "type": "number"
+            },
+            "num_tx": {
+              "type": "integer"
+            },
+            "timestamp": {
+              "type": "integer"
+            },
+            "relays": {
+              "type": "object",
+              "properties": {
+                "https://agnostic-relay.net": {
+                  "type": "boolean"
+                },
+                "https://boost-relay.flashbots.net": {
+                  "type": "boolean"
+                },
+                "https://relay.ultrasound.money": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "https://agnostic-relay.net",
+                "https://boost-relay.flashbots.net",
+                "https://relay.ultrasound.money"
+              ]
+            }
+          },
+          "required": [
+            "builder",
+            "block_hash",
+            "gas_used",
+            "value",
+            "num_tx",
+            "timestamp",
+            "relays"
+          ]
+        },
+        "builder0x69": {
+          "type": "object",
+          "properties": {
+            "builder": {
+              "type": "string"
+            },
+            "block_hash": {
+              "type": "string"
+            },
+            "gas_used": {
+              "type": "integer"
+            },
+            "value": {
+              "type": "number"
+            },
+            "num_tx": {
+              "type": "integer"
+            },
+            "timestamp": {
+              "type": "integer"
+            },
+            "relays": {
+              "type": "object",
+              "properties": {
+                "https://agnostic-relay.net": {
+                  "type": "boolean"
+                },
+                "https://boost-relay.flashbots.net": {
+                  "type": "boolean"
+                },
+                "https://relay.ultrasound.money": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "https://agnostic-relay.net",
+                "https://boost-relay.flashbots.net",
+                "https://relay.ultrasound.money"
+              ]
+            }
+          },
+          "required": [
+            "builder",
+            "block_hash",
+            "gas_used",
+            "value",
+            "num_tx",
+            "timestamp",
+            "relays"
+          ]
+        },
+        "rsync-builder": {
+          "type": "object",
+          "properties": {
+            "builder": {
+              "type": "string"
+            },
+            "block_hash": {
+              "type": "string"
+            },
+            "gas_used": {
+              "type": "integer"
+            },
+            "value": {
+              "type": "number"
+            },
+            "num_tx": {
+              "type": "integer"
+            },
+            "timestamp": {
+              "type": "integer"
+            },
+            "relays": {
+              "type": "object",
+              "properties": {
+                "https://agnostic-relay.net": {
+                  "type": "boolean"
+                },
+                "https://relay.ultrasound.money": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "https://agnostic-relay.net",
+                "https://relay.ultrasound.money"
+              ]
+            }
+          },
+          "required": [
+            "builder",
+            "block_hash",
+            "gas_used",
+            "value",
+            "num_tx",
+            "timestamp",
+            "relays"
+          ]
+        },
+        "titanbuilder": {
+          "type": "object",
+          "properties": {
+            "builder": {
+              "type": "string"
+            },
+            "block_hash": {
+              "type": "string"
+            },
+            "gas_used": {
+              "type": "integer"
+            },
+            "value": {
+              "type": "number"
+            },
+            "num_tx": {
+              "type": "integer"
+            },
+            "timestamp": {
+              "type": "integer"
+            },
+            "relays": {
+              "type": "object",
+              "properties": {
+                "https://agnostic-relay.net": {
+                  "type": "boolean"
+                },
+                "https://relay.edennetwork.io": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "https://agnostic-relay.net",
+                "https://relay.edennetwork.io"
+              ]
+            }
+          },
+          "required": [
+            "builder",
+            "block_hash",
+            "gas_used",
+            "value",
+            "num_tx",
+            "timestamp",
+            "relays"
+          ]
+        }
+      },
+      "required": [
+        "<unknown>",
+        "EigenPhi",
+        "beaverbuild",
+        "boba-builder",
+        "builder0x69",
+        "rsync-builder",
+        "titanbuilder"
+      ]
+    },
+    "bids_by_relay": {
+      "type": "object",
+      "properties": {
+        "https://agnostic-relay.net": {
+          "type": "object",
+          "properties": {
+            "<unknown>": {
+              "type": "integer"
+            },
+            "EigenPhi": {
+              "type": "integer"
+            },
+            "beaverbuild": {
+              "type": "integer"
+            },
+            "boba-builder": {
+              "type": "integer"
+            },
+            "builder0x69": {
+              "type": "integer"
+            },
+            "rsync-builder": {
+              "type": "integer"
+            },
+            "titanbuilder": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "<unknown>",
+            "EigenPhi",
+            "beaverbuild",
+            "boba-builder",
+            "builder0x69",
+            "rsync-builder",
+            "titanbuilder"
+          ]
+        },
+        "https://boost-relay.flashbots.net": {
+          "type": "object",
+          "properties": {
+            "<unknown>": {
+              "type": "integer"
+            },
+            "EigenPhi": {
+              "type": "integer"
+            },
+            "beaverbuild": {
+              "type": "integer"
+            },
+            "boba-builder": {
+              "type": "integer"
+            },
+            "builder0x69": {
+              "type": "integer"
+            },
+            "rsync-builder": {
+              "type": "integer"
+            },
+            "titanbuilder": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "<unknown>",
+            "EigenPhi",
+            "beaverbuild",
+            "boba-builder",
+            "builder0x69",
+            "rsync-builder",
+            "titanbuilder"
+          ]
+        },
+        "https://relay.edennetwork.io": {
+          "type": "object",
+          "properties": {
+            "EigenPhi": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "EigenPhi"
+          ]
+        },
+        "https://relay.ultrasound.money": {
+          "type": "object",
+          "properties": {
+            "<unknown>": {
+              "type": "integer"
+            },
+            "EigenPhi": {
+              "type": "integer"
+            },
+            "beaverbuild": {
+              "type": "integer"
+            },
+            "boba-builder": {
+              "type": "integer"
+            },
+            "builder0x69": {
+              "type": "integer"
+            },
+            "rsync-builder": {
+              "type": "integer"
+            },
+            "titanbuilder": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "<unknown>",
+            "EigenPhi",
+            "beaverbuild",
+            "boba-builder",
+            "builder0x69",
+            "rsync-builder",
+            "titanbuilder"
+          ]
+        }
+      },
+      "required": [
+        "https://agnostic-relay.net",
+        "https://boost-relay.flashbots.net",
+        "https://relay.edennetwork.io",
+        "https://relay.ultrasound.money"
+      ]
+    },
+    "relays": {
+      "type": "object",
+      "properties": {
+        "https://agnostic-relay.net": {
+          "type": "boolean"
+        },
+        "https://boost-relay.flashbots.net": {
+          "type": "boolean"
+        },
+        "https://relay.edennetwork.io": {
+          "type": "boolean"
+        },
+        "https://relay.ultrasound.money": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "https://agnostic-relay.net",
+        "https://boost-relay.flashbots.net",
+        "https://relay.edennetwork.io",
+        "https://relay.ultrasound.money"
+      ]
+    },
+    "block_timestamp": {
+      "type": "integer"
+    },
+    "timestamp": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "slot",
+    "block",
+    "validator",
+    "fee_recipient",
+    "best",
+    "best_by_builder",
+    "bids_by_relay",
+    "relays",
+    "block_timestamp",
+    "timestamp"
+  ]
+}
